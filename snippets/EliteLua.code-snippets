@@ -1,0 +1,1106 @@
+{
+	// Place your EliteLua 工作区 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	// 
+	// 
+	//data：2021.01.18
+	// 
+	//逻辑语句
+	"if条件判断": {
+		"scope": "lua",
+		"prefix": "if",
+		"body": [
+			"if(${1:})  then",
+			"\t${2:}",
+			"elseif(${3:}) then",
+			"\t${4:}",
+			"else",
+			"\t${5:}",
+			"end"
+		],
+		"description": [
+			"if条件判断"
+		]
+	},
+	"while循环": {
+		"scope": "lua",
+		"prefix": "while",
+		"body": [
+			"while(${1:}) do",
+			"\t${2:}",
+			"end"
+		],
+		"description": "while循环"
+	},
+	"repeat循环": {
+		"scope": "lua",
+		"prefix": "repeat",
+		"body": [
+			"repeat",
+			"\t${1:}",
+			"until(${2:})"
+		],
+		"description": "repeat循环"
+	},
+	"for循环": {
+		"scope": "lua",
+		"prefix": "for",
+		"body": [
+			"for i=${1:value},${2:max/min},${3:increment}  do",
+			"\t${4:}",
+			"end"
+		],
+		"description": "for循环"
+	},
+	"函数": {
+		"scope": "lua",
+		"prefix": "function",
+		"body": [
+			"function ${1:function_name}(${2:argument1})",
+  			"\t${3:function_body}",
+    		"\treturn ${2:result}",
+			"end"
+		],
+		"description": "函数"
+	},
+	"local": {
+		"scope": "lua",
+		"prefix": "local",
+		"body": [
+			"local"
+		],
+		"description": "local"
+	},
+	//常用函数
+	"延时等待": {
+		"scope": "lua",
+		"prefix": "sleep",
+		"body": [
+			"sleep(${1})",
+		],
+		"description": [
+			"示例：sleep(0.1)",
+			"延时等待0.1s"
+		]
+	},
+	"设置机器人本体IO状态": {
+		"scope": "lua",
+		"prefix": "set_robot_io_status",
+		"body": "set_robot_io_status(${1:string}, ${2:int/double})",
+		"description": [
+			"示例：set_robot_io_status (“m20”,1) ",
+			"\r注释：设置M20为1"
+		]
+	},
+	"获取机器人本体IO状态": {
+		"scope": "lua",
+		"prefix": "get_robot_io_status",
+		"body": [
+			"get_robot_io_status(${1:string})"
+		],
+		"description": "获取机器人本体IO状态"
+	},
+	"获取示教器全局变量值": {
+		"scope": "lua",
+		"prefix": "get_global_variable",
+		"body": [
+			"get_global_variable(${1:string})"
+		],
+		"description": "获取示教器全局变量值"
+	},
+	" 设置示教器全局变量值": {
+		"scope": "lua",
+		"prefix": "set_global_variable",
+		"body": [
+			"set_global_variable(${1:string},${2:Value})"
+		],
+		"description": " 设置示教器全局变量值"
+	},
+	"设置是否调试模式": {
+		"scope": "lua",
+		"prefix": "set_debug",
+		"body": [
+			"set_debug(${1|0,1|})"
+		],
+		"description": "设置是否调试模式"
+	},
+	"打印信息至示教器界面": {
+		"scope": "lua",
+		"prefix": "elite_print",
+		"body": [
+			"elite_print(${1:string})"
+		],
+		"description": "打印信息至示教器界面"
+	},
+	"逆解函数": {
+		"scope": "lua",
+		"prefix": " get_inv_kinematics",
+		"body": [
+			"get_inv_kinematics(${1:table1},${2:table2})"
+		],
+		"description": "逆解函数"
+	},
+	"正解函数": {
+		"scope": "lua",
+		"prefix": " get_fwd_kinematics",
+		"body": [
+			"get_fwd_kinematics(${1:table})"
+		],
+		"description": "正解函数"
+	},
+	"位姿的逆": {
+		"scope": "lua",
+		"prefix": "pose_inv",
+		"body": [
+			"pose_inv(${1:table1})"
+		],
+		"description": "位姿的逆"
+	},
+	"位姿的乘": {
+		"scope": "lua",
+		"prefix": " pose_mul",
+		"body": [
+			" pose_mul(table1,tarble2)"
+		],
+		"description": "位姿的乘"
+	},
+	"获取机器人模式": {
+		"scope": "lua",
+		"prefix": "get_robot_mode",
+		"body": [
+			"get_robot_mode()"
+		],
+		"description": "获取机器人模式"
+	},
+	"获取机器人JBI运行模式": {
+		"scope": "lua",
+		"prefix": "get_cycle_mode",
+		"body": [
+			"get_cycle_mode()"
+		],
+		"description": "获取机器人JBI运行模式"
+	},
+	"获取机器人伺服使能状态": {
+		"scope": "lua",
+		"prefix": "get_servo_status",
+		"body": [
+			"get_servo_status()"
+		],
+		"description": "获取机器人伺服使能状态"
+	},
+	"获取机器人运行状态": {
+		"scope": "lua",
+		"prefix": "get_robot_state",
+		"body": [
+			"get_robot_state()"
+		],
+		"description": "获取机器人运行状态"
+	},
+	"获取机器人坐标系": {
+		"scope": "lua",
+		"prefix": "get_current_coord",
+		"body": [
+			"get_current_coord()"
+		],
+		"description": "获取机器人坐标系"
+	},
+	"获取机器人位姿": {
+		"scope": "lua",
+		"prefix": "get_robot_pose",
+		"body": [
+			"get_robot_pose()"
+		],
+		"description": "获取机器人位姿"
+	},
+	"获取机器人关节角度": {
+		"scope": "lua",
+		"prefix": "get_robot_joint",
+		"body": [
+			"get_robot_joint()"
+		],
+		"description": "获取机器人关节角度"
+	},
+	"获取机器人力矩信息": {
+		"scope": "lua",
+		"prefix": "get_robot_torque",
+		"body": [
+			"get_robot_torque()"
+		],
+		"description": "获取机器人力矩信息"
+	},
+	"获取工具坐标系": {
+		"scope": "lua",
+		"prefix": "get_tool_frame",
+		"body": [
+			"get_tool_frame(${1|0,1,2,3,4,5,6,7|})"
+		],
+		"description": "获取工具坐标系"
+	},
+	"获取用户坐标系": {
+		"scope": "lua",
+		"prefix": "get_user_frame",
+		"body": [
+			"get_user_frame(${1|0,1,2,3,4,5,6,7|})"
+		],
+		"description": "获取用户坐标系"
+	},
+	"检查工具坐标系是否使能": {
+		"scope": "lua",
+		"prefix": "check_tool_frame_enable",
+		"body": [
+			"check_tool_frame_enable(${1|0,1,2,3,4,5,6,7|})"
+		],
+		"description": "检查工具坐标系是否使能"
+	},
+	"检查用户坐标系是否使能": {
+		"scope": "lua",
+		"prefix": "check_user_frame_enable",
+		"body": [
+			"check_user_frame_enable(${1|0,1,2,3,4,5,6,7|})"
+		],
+		"description": "检查用户坐标系是否使能"
+	},
+	//TCP通信部分
+	//TCP服务器
+	"初始化TCP服务器": {
+		"scope": "lua",
+		"prefix": "init_tcp_server",
+		"body": [
+			"init_tcp_server(${1:int})"
+		],
+		"description": "初始化TCP服务器"
+	},
+	"判断客户端是否连接了服务器": {
+		"scope": "lua",
+		"prefix": "is_client_connected",
+		"body": [
+			"is_client_connected(${1:stringip})"
+		],
+		"description": "判断客户端是否连接了服务器"
+	},
+	"接收客户端数据": {
+		"scope": "lua",
+		"prefix": "server_recv_data",
+		"body": [
+			"server_recv_data(${1:stringip})"
+		],
+		"description": "接收客户端数据"
+	},
+	"向客户端发送数据": {
+		"scope": "lua",
+		"prefix": "server_send_data",
+		"body": [
+			"server_send_data(${1:stringip},${2:stringmsg})"
+		],
+		"description": "向客户端发送数据"
+	},
+	//TCP客户端
+	"连接服务器": {
+		"scope": "lua",
+		"prefix": "connect_tcp_server",
+		"body": [
+			"connect_tcp_server(${1:stringip},${2:intport})"
+		],
+		"description": "连接服务器"
+	},
+	"接收服务器数据": {
+		"scope": "lua",
+		"prefix": "client_recv_data",
+		"body": [
+			"client_recv_data(${1:stringip},${2:double},${3|0,1|})"
+		],
+		"description": "接收服务器数据"
+	},
+	"整体设置超时时间": {
+		"scope": "lua",
+		"prefix": "client_set_recv_timeout",
+		"body": [
+			"client_set_recv_timeout(${1:stringip},${2:double})"
+		],
+		"description": "整体设置超时时间"
+	},
+	"向服务器发送数据": {
+		"scope": "lua",
+		"prefix": "client_send_data",
+		"body": [
+			"client_send_data(${1:stringip},${2:double})"
+		],
+		"description": "向服务器发送数据"
+	},
+	"断开TCP连接": {
+		"scope": "lua",
+		"prefix": "disconnect_tcp_server",
+		"body": [
+			"disconnect_tcp_server(${1:stringip})"
+		],
+		"description": "断开TCP连接"
+	},
+	//485通信部分
+	"打开485接口": {
+		"scope": "lua",
+		"prefix": "rs485_open",
+		"body": [
+			"rs485_open()"
+		],
+		"description": "打开485接口"
+	},
+	"设置485串口配置": {
+		"scope": "lua",
+		"prefix": "rs485_setopt",
+		"body": [
+			"rs485_setopt(${4:speed},${1|8,7|},${2|\"N\",\"O\",\"E\"|},${3|1,2|})"
+		],
+		"description": "设置485串口配置"
+	},
+	"RS485接收数据": {
+		"scope": "lua",
+		"prefix": "rs485_recv",
+		"body": [
+			"rs485_recv(${1:int},${2:int})"
+		],
+		"description": "RS485接收数据"
+	},
+	"RS485发送数据": {
+		"scope": "lua",
+		"prefix": "rs485_send",
+		"body": [
+			"rs485_send(${2:string},${1|0,1|})"
+		],
+		"description": "RS485发送数据"
+	},
+	"关闭485接口": {
+		"scope": "lua",
+		"prefix": "rs485_close",
+		"body": [
+			"rs485_close()"
+		],
+		"description": "关闭485接口"
+	},
+	"清空485缓冲区": {
+		"scope": "lua",
+		"prefix": "rs485_flush",
+		"body": [
+			"rs485_flush()"
+		],
+		"description": "清空485缓冲区"
+	},
+	//TCI通信
+	"打开末端485接口": {
+		"scope": "lua",
+		"prefix": "tci_open",
+		"body": [
+			"tci_open()"
+		],
+		"description": "打开末端485接口"
+	},
+	"设置TCI串口配置": {
+		"scope": "lua",
+		"prefix": "tci_setopt",
+		"body": [
+			"tci_setopt(${4:speed},${1|8,7|},${2|\"N\",\"O\",\"E\"|},${3|1,2|})"
+		],
+		"description": "设置TCI串口配置"
+	},
+	"TCI接收数据": {
+		"scope": "lua",
+		"prefix": "tci_recv",
+		"body": [
+			"tci_recv(${2:int},${1|0,1|})"
+		],
+		"description": "TCI接收数据"
+	},
+	"TCI发送数据": {
+		"scope": "lua",
+		"prefix": "tci_send",
+		"body": [
+			"tci_send(${2:string},${1|0,1|})"
+		],
+		"description": "TCI发送数据"
+	},
+	"关闭TCI接口": {
+		"scope": "lua",
+		"prefix": "tci_close",
+		"body": [
+			"tci_close()"
+		],
+		"description": "关闭TCI接口"
+	},
+	"清空TCI缓冲区": {
+		"scope": "lua",
+		"prefix": "tci_flush",
+		"body": [
+			"tci_flush()"
+		],
+		"description": "清空TCI缓冲区"
+	},
+	//Modbus Master
+	"获取modbusRTU句柄": {
+		"scope": "lua",
+		"prefix": "modbus_new_rtu",
+		"body": [
+			"modbus_new_rtu(${1|0,1,2|},${2:speed},${3|8,7|},${4|\"N\",\"O\",\"E\"|},${5|1,2|})"
+		],
+		"description": "获取modbusRTU句柄"
+	},
+	"获取modbusTCP句柄": {
+		"scope": "lua",
+		"prefix": "modbus_new_tcp",
+		"body": [
+			"modbus_new_tcp(${1:stringip},${2|intport|})"
+		],
+		"description": "获取modbusTCP句柄"
+	},
+	"连接modbus句柄": {
+		"scope": "lua",
+		"prefix": "modbus_connect",
+		"body": [
+			"modbus_connect(${1:ctx})"
+		],
+		"description": "连接modbus句柄"
+	},
+	"关闭modbus句柄": {
+		"scope": "lua",
+		"prefix": "modbus_close",
+		"body": [
+			"modbus_close(${1:ctx})"
+		],
+		"description": "关闭modbus句柄"
+	},
+	"设置slave地址": {
+		"scope": "lua",
+		"prefix": "modbus_set_slave",
+		"body": [
+			"modbus_set_slave(${1:ctx},${2:slaveid})"
+		],
+		"description": "设置slave地址"
+	},
+	"往指定地址写入值": {
+		"scope": "lua",
+		"prefix": "modbus_write_register",
+		"body": [
+			"modbus_write_register(${1:ctx},${2:int},${3:int})"
+		],
+		"description": "往指定地址写入值"
+	},
+	"从指定地址读出值": {
+		"scope": "lua",
+		"prefix": "modbus_read_register",
+		"body": [
+			"modbus_read_register(${1:ctx},${2:int})"
+		],
+		"description": "从指定地址读出值"
+	},
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//io库
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	"按指定的模式打开一个文件": {
+		"scope": "lua",
+		"prefix": "io.open",
+		"body": [
+			"io.open(${1:filename},${2|\"r\",\"w\",\"a\",\"r+\",\"w+\",\"a+\",\"b\"|})"
+		],
+		"description": ["按指定的模式打开一个文件，成功则返回文件句柄，失败则返回nil+错误信息\r\n",
+		"r:只读模式打开，不能写入\r\n",
+		"w：只写模式打开，不能读取\r\n",
+		"a：追加打开一个现有的文件或\r\n进行追加创建一个新的文件模式\r\n",
+		"r+:以读写方式打开，保留原有数据。\r\n这个模式是自由度最高的\r\n",
+		"w+:以读写方式打开，删除原有数据。\r\n就是打开后文件是空文件\r\n",
+		"a+:以读写方式打开，保留原有数据，\r\n只能在文件末尾添加，不能在文件中间改写数据。\r\n若找不到文件，也会创建新文件\r\n",
+		"b:某些系统支持二进制方式\r\n"]	
+	},
+	"关闭文件": {
+		"scope": "lua",
+		"prefix": "io.close",
+		"body": [
+			"io.close(${1:filename})"
+		],
+		"description": "关闭文件"
+	},
+	"设置默认输出文件": {
+		"scope": "lua",
+		"prefix": "io.output",
+		"body": [
+			"io.output(${1:filename})"
+		],
+		"description": "设置默认输出文件"
+	},
+	"设置默认输入文件": {
+		"scope": "lua",
+		"prefix": "io.input",
+		"body": [
+			"io.input(${1:filename})"
+		],
+		"description": "设置默认输入文件"
+	},
+	"读文件": {
+		"scope": "lua",
+		"prefix": "io.read",
+		"body": [
+			"io.read(${1|*n,*a,*l,num|})"
+		],
+		"description": "读文件"
+	},
+	"写文件": {
+		"scope": "lua",
+		"prefix": "io.write",
+		"body": [
+			"io.write()"
+		],
+		"description": "写文件"
+	},
+
+
+	"逐行读取文件": {
+		"scope": "lua",
+		"prefix": "io.lines",
+		"body": [
+			"io.lines()"
+		],
+		"description": "逐行读取文件:\nio.lines([filename])=file:lines()\n"
+	},
+	"生成临时文件": {
+        "body": "io.tmpfile(${0:...})",
+        "description": "如果成功，返回一个临时文件的句柄。 这个文件以更新模式打开，在程序结束时会自动删除\n",
+        "prefix": "io.tmpfile",
+        "scope": "source.lua"
+    },
+    "文件类型": {
+        "body": "io.type(${0:obj})",
+        "description": "检查 obj 是否是合法的文件句柄。可以打开返回字符串file，如果是一个关闭的文件句柄，返回closed file，如果obj不是文件句柄，返回nil\n",
+        "prefix": "io.type",
+        "scope": "source.lua"
+    },
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//string库
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	"截取指定位置长度的字符串": {
+		"scope": "lua",
+		"prefix": "string.sub",
+		"body": [
+			"string.sub(${1:string},${2},${3})"
+		],
+		"description": "string.sub(strccd, 起始位置, 终止位置)"
+	},
+	"获取字符串的长度": {
+		"scope": "lua",
+		"prefix": "string.len",
+		"body": [
+			"string.len(${1:string})"
+		],
+		"description": "string.len(目标字符串)"
+	},
+	"分割字符串": {
+		"scope": "lua",
+		"prefix": "string.split",
+		"body": [
+			"string.split(${1:string},${2:delimiter})"
+		],
+		"description": "分割字符串，带分隔字符串，返回数组，str 要分离的字符串，delimiter 分隔符"
+	},
+	"大写转小写": {
+		"scope": "lua",
+		"prefix": "string.lower",
+		"body": [
+			"string.lower(${1:string})"
+		],
+		"description": "大写转小写"
+	},
+	"小写转大写": {
+		"scope": "lua",
+		"prefix": "string.upper",
+		"body": [
+			"string.upper(${1:string})"
+		],
+		"description": "小写转大写"
+	},
+	"字符转数字": {
+		"scope": "lua",
+		"prefix": "string.char",
+		"body": [
+			"string.char($1)"
+		],
+		"description": "字符转数字"
+	},
+	"数字转字符": {
+		"scope": "lua",
+		"prefix": "string.byte",
+		"body": [
+			"string.byte($1)"
+		],
+		"description": "数字转字符"
+	},
+	"字符串格式化": {
+		"scope": "lua",
+		"prefix": "string.format",
+		"body": [
+			"string.format(${1|\"c\",\"o\",\"u\",\"x\",\"X\",\"e\",\"E\",\"f\",\"q\",\"s\",\"d\",\"i\"|},$2)"
+		],
+		"description": "字符串格式化"
+	},
+	"转换成字符串": {
+		"scope": "lua",
+		"prefix": "tostring",
+		"body": [
+			"tostring($1)"
+		],
+		"description": "转换成字符串"
+	},
+	"转换成数字": {
+		"scope": "lua",
+		"prefix": "tonumber",
+		"body": [
+			"tonumber($1,${2|2,8,10,16|})"
+		],
+		"description": "转换成数字(DEC类型)"
+	},
+	"返回数据类型": {
+		"scope": "lua",
+		"prefix": "type",
+		"body": [
+			"type($1)"
+		],
+		"description": "返回数据类型"
+	},
+	"字符串替换": {
+		"scope": "lua",
+		"prefix": "string.gsub",
+		"body": [
+			"string.gsub(${1:main},${2:find},${3:replace},${4:num})"
+		],
+		"description": "在字符串中替换。main为要操作的字符串，find为被替换的字符，replace要替换的字符，num 替换次数（可以忽略，则全部替换）"
+	},
+	"字符串搜索": {
+		"scope": "lua",
+		"prefix": "string.find",
+		"body": [
+			"string.find(${1:str},${2:substr},${3:pos})"
+		],
+		"description": "在一个指定的目标字符串中搜索指定的内容(第三个参数为索引),返回其具体位置。不存在则返回 nil。"
+	},
+	"字符串反转": {
+		"scope": "lua",
+		"prefix": "string.reverse",
+		"body": [
+			"string.reverse(${1:str})"
+		],
+		"description": "返回反转后的字符串"
+	},
+	"字符串拷贝": {
+		"scope": "lua",
+		"prefix": "string.rep",
+		"body": [
+			"string.rep(${1:str},${2:n})"
+		],
+		"description": "返回赋值n次后的字符串"
+	},
+	"字符串打包": {
+        "body": "string.pack(${0:...})",
+        "description": "string.pack (fmt, v1, v2, ...)",
+        "prefix": "string.pack",
+        "scope": "source.lua"
+    },
+	"字符串拆包": {
+        "body": "string.unpack(${0:...})",
+        "description": "string.unpack (fmt, s [, pos])",
+        "prefix": "string.unpack",
+        "scope": "source.lua"
+	},
+	"返回打包的字符串长度。": {
+        "body": "string.packsize(${0:...})",
+        "description": "返回以指定格式用 string.pack 打包的字符串的长度。",
+        "prefix": "string.packsize",
+        "scope": "source.lua"
+	},
+	"模式匹配": {
+        "body": "string.match(${1:str},${2:pattern},${3:pos})",
+        "description": "str:目标字符串，pattern：查找模式字符串，pos：指定开始位置",
+        "prefix": "string.match",
+        "scope": "source.lua"
+	},
+	"全局模式匹配": {
+        "body": "string.gmatch(${1:str},${2:pattern})",
+        "description": "string.gmatch",
+        "prefix": "string.gmatch",
+        "scope": "source.lua"
+	},
+	"返回指定函数的二进制代码": {
+        "body": "string.dump(${0:function})",
+        "description": "把函数序列化成字符串来保存，下次要使用的时候直接用loadstring或loadfile就可以还原函数",
+        "prefix": "string.dump",
+        "scope": "source.lua"
+    },
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//table库
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	"table连接": {
+		"scope": "lua",
+		"prefix": "table.concat",
+		"body": [
+			"table.concat(${1:table},${2:sep},${3:start},${4:end})"
+		],
+		"description": "table.concat()函数列出参数中指定table的数组部分从start位置到end位置的所有元素, 元素间以指定的分隔符(sep)隔开。"
+	},
+	"table插入": {
+		"scope": "lua",
+		"prefix": "table.insert",
+		"body": [
+			"table.insert(${1:table},${2:pos},${3:value})"
+		],
+		"description": "在table的数组部分指定位置(pos)插入值为value的一个元素. pos参数可选, 默认为数组部分末尾。pos为string类型"
+	},
+	"table删除": {
+		"scope": "lua",
+		"prefix": "table.remove",
+		"body": [
+			"table.remove(${1:table},${2:pos})"
+		],
+		"description": "返回table数组部分位于pos位置的元素. 其后的元素会被前移. pos参数可选, 默认为table长度, 即从最后一个元素删起。"
+	},
+	"table升序排序": {
+		"scope": "lua",
+		"prefix": "table.sort",
+		"body": [
+			"table.sort(${1:table})"
+		],
+		"description": "对给定的table进行升序排序。"
+	},
+
+
+	"table表间移动": {
+        "body": "table.move(${0:...})",
+        "description": "table.move (a1, f, e, t [,a2])",
+        "prefix": "将元素从表 a1 移到表 a2",
+        "scope": "source.lua"
+	},
+	"table打包": {
+        "body": "table.pack(${0:...})",
+        "description": "table.pack函数是获取一个索引从 1 开始的参数表 table，并会对这个 table 预定义一个字段 n，表示该表的长度",
+        "prefix": "table.pack",
+        "scope": "source.lua"
+    },
+	"table拆包": {
+        "body": "table.unpack(${0:table},${1:start},${2:end})",
+        "description": "用于返回 table 里的元素，参数 start 是开始返回的元素位置，默认是 1，参数 end 是返回最后一个元素的位置，默认是 table 最后一个元素的位置，参数 start、end 都是可选",
+        "prefix": "table.unpack",
+        "scope": "source.lua"
+	},
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//UTF-8库
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	"utf8.char": {
+        "body": "utf8.char(${0:...})",
+        "description": "接收零或多个整数，将每个整数转换成对应的UTF-8字节序列，并返回这些序列连接的字符串",
+        "prefix": "utf8.char",
+        "scope": "source.lua"
+    },
+    "utf8.charpattern": {
+        "body": "utf8.charpattern(${0:...})",
+        "description": "用于精确匹配一个UTF-8字节序列的模式",
+        "prefix": "utf8.charpattern",
+        "scope": "source.lua"
+    },
+    "utf8.codepoint": {
+        "body": "utf8.codepoint(${0:...})",
+        "description": "以整数形式返回 s 中 从位置 i 到 j 间（包括两端） 所有字符的编号。",
+        "prefix": "utf8.codepoint",
+        "scope": "source.lua"
+    },
+    "utf8.codes": {
+        "body": "utf8.codes(${0:...})",
+        "description": "返回一系列值，可以让for p, c in utf8.codes(s) do body end迭代出字符串 s 中所有的字符。 这里的 p 是位置（按字节数）而 c 是每个字符的编号。 如果处理到一个不合法的字节序列，将抛出一个错误。",
+        "prefix": "utf8.codes",
+        "scope": "source.lua"
+    },
+    "utf8.len": {
+        "body": "utf8.len(${0:...})",
+        "description": "返回字符串 s 中 从位置 i 到 j 间 （包括两端） UTF-8 字符的个数",
+        "prefix": "utf8.len",
+        "scope": "source.lua"
+    },
+    "utf8.offset": {
+        "body": "utf8.offset(${0:...})",
+        "description": "返回编码在 s 中的第 n 个字符的开始位置（按字节数） （从位置 i 处开始统计）。",
+        "prefix": "utf8.offset",
+        "scope": "source.lua"
+    },
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//OS库
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	"os.clock": {
+        "body": "os.clock(${0:...})",
+        "description": "返回程序使用的按秒计CPU",
+        "prefix": "os.clock",
+        "scope": "source.lua"
+    },
+    "os.date": {
+        "body": "os.date(${0:...})",
+        "description": "返回一个包含日期及时刻的字符串或表",
+        "prefix": "os.date",
+        "scope": "source.lua"
+    },
+    "os.difftime": {
+        "body": "os.difftime(${0:t2},${1:t1})",
+        "description": "返回以秒计算的时刻t1到t2的差值",
+        "prefix": "os.difftime",
+        "scope": "source.lua"
+    },
+    "os.execute": {
+        "body": "os.execute(${0:...})",
+        "description": "等价于ISO C函数system",
+        "prefix": "os.execute",
+        "scope": "source.lua"
+    },
+    "os.exit": {
+        "body": "os.exit(${0:...})",
+        "description": "调用ISO C函数exit终止宿主程序",
+        "prefix": "os.exit",
+        "scope": "source.lua"
+    },
+    "os.getenv": {
+        "body": "os.getenv(${0:...})",
+        "description": "返回进程环境变量varname的值，如果该变量未定义，返回nil",
+        "prefix": "os.getenv",
+        "scope": "source.lua"
+    },
+    "os.remove": {
+        "body": "os.remove(${0:...})",
+        "description": "删除指定名字的文件（在 POSIX 系统上可以是一个空目录） 如果函数失败，返回 nil 加一个错误描述串及出错码。",
+        "prefix": "os.remove",
+        "scope": "source.lua"
+    },
+    "os.rename": {
+        "body": "os.rename(${0:...})",
+        "description": "将名字为 oldname 的文件或目录更名为 newname",
+        "prefix": "os.rename",
+        "scope": "source.lua"
+    },
+    "os.setlocale": {
+        "body": "os.setlocale(${0:lacale},${1|all,collate,ctype,monetary,numeric,time|})",
+        "description": "设置程序的当前区域",
+        "prefix": "os.setlocale",
+        "scope": "source.lua"
+    },
+    "os.time": {
+        "body": "os.time(${0:...})",
+        "description": "当不传入参数时，返回当前时刻。如果传入一张表，就返回由这张表表示的时刻，这张表必须包含域 year，month，及 day； 可以包含有　hour （默认为 12 ）， min （默认为 0）， sec （默认为 0），以及 isdst （默认为 nil）。",
+        "prefix": "os.time",
+        "scope": "source.lua"
+    },
+    "os.tmpname": {
+        "body": "os.tmpname()",
+        "description": "返回一个可用于临时文件的文件名字符串",
+        "prefix": "os.tmpname",
+        "scope": "source.lua"
+    },
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//math库
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	"math.abs()":{
+		"body":"math.abs(${1:x})",
+		"description":"计算绝对值\r\n返回值：\r\n  返回x的绝对值。\n",
+		"prefix":"math.abs()"
+	},
+	"math.acos()":{
+		"body":"math.acos(${1:x})",
+		"description":"计算反余弦值\r\n返回值：\r\n  返回x的反余弦值（用弧度表示）。",
+		"prefix":"math.acos()"
+	},
+	"math.asin()":{
+		"body":"math.asin(${1:x})",
+		"description":"计算反正弦值\r\n返回值：\r\n  返回x的反正弦值（用弧度表示）。",
+		"prefix":"math.asin()"
+	},
+	"math.atan()":{
+		"body":"math.atan(${1:y}${2:[, x]})",
+		"description":"计算反正切值\r\n返回值：\r\n  返回 y/x 的反正切值（用弧度表示）。",
+		"prefix":"math.atan()"
+	},
+	"math.atan2":{
+		"body":"math.atan2(${0:...})",
+		"description":"math.atan2 (y, x)",
+		"prefix":"math.atan2"
+	},
+	"math.ceil()":{
+		"body":"math.ceil(${1:x})",
+		"description":"计算最小整数值\r\n返回值：\r\n  返回不小于 x 的最小整数值。",
+		"prefix":"math.ceil()"
+	},
+	"math.cos()":{
+		"body":"math.cos(${1:x})",
+		"description":"计算余弦值\r\n返回值：\r\n  返回 x 的余弦",
+		"prefix":"math.cos()"
+	},
+	"math.cosh":{
+		"body":"math.cosh(${0:...})",
+		"description":"math.cosh (x)",
+		"prefix":"math.cosh"
+	},
+	"math.deg()":{
+		"body":"math.deg(${1:x})",
+		"description":"弧度转换为角度\r\n返回值：\r\n  返回转换后的角度值",
+		"prefix":"math.deg()"
+	},
+	"math.exp()":{
+		"body":"math.exp(${1:x})",
+		"description":"计算 *ex* （*e*为自然对数的底 ）的值\r\n返回值：\r\n   *ex* （e 为自然对数的底 ）的值",
+		"prefix":"math.exp()"
+	},
+	"math.floor()":{
+		"body":"math.floor(${1:x})",
+		"description":"计算不大于 x 的最大整数值。\r\n返回值：\r\n  返回不大于 x 的最大整数值。",
+		"prefix":"math.floor()"
+	},
+	"math.fmod()":{
+		"body":"math.fmod(${1:x},${2:y})",
+		"description":"计算 x 除以 y，将商向零圆整后的余数\r\n返回值：\r\n  返回 x 除以 y，将商向零圆整后的余数。",
+		"prefix":"math.fmod()"
+	},
+	"math.frexp":{
+		"body":"math.frexp(${0:...})",
+		"description":"math.frexp (x)",
+		"prefix":"math.frexp"
+	},
+	"math.huge":{
+		"body":"math.huge",
+		"description":"浮点数 HUGE_VAL， 这个数比任何数字值都大。\r\n返回值：\r\n  无",
+		"prefix":"math.huge"
+	},
+	"math.ldexp":{
+		"body":"math.ldexp(${0:...})",
+		"description":"math.ldexp (m, e)",
+		"prefix":"math.ldexp"
+	},
+	"math.log()":{
+		"body":"math.log(${1:x}${2:[, base]})",
+		"description":"计算指定底的 x 的对数。 默认的 base 是 *e* （因此此函数返回 x 的自然对数）。\r\n返回值：\r\n  返回以指定底的 x 的对数",
+		"prefix":"math.log()"},
+	"math.log10":{
+		"body":"math.log10(${0:...})",
+		"description":"math.log10 (x)",
+		"prefix":"math.log10"
+	},
+	"math.randomseed":{
+		"body":"math.randomseed( ${1:x} )",
+		"description":"math.randomseed",
+		"prefix":"math.randomseed"
+	},
+	"math.max()":{
+		"body":"math.max(${1:x},${2:...})",
+		"description":"计算参数中最大的值， 大小由 Lua 操作 < 决定。\r\n返回值：\r\n  返回参数中最大的值",
+		"prefix":"math.max()"
+	},
+	"math.maxinteger":{
+		"body":"math.maxinteger",
+		"description":"最大值的整数。\r\n返回值：\r\n  无",
+		"prefix":"math.maxinteger"
+	},
+	"math.min()":{
+		"body":"math.min(${1:x},${2:...})",
+		"description":"返回参数中最小的值， 大小由 Lua 操作 < 决定。\r\n返回值：\r\n  返回参数中最小的值。",
+		"prefix":"math.min()"
+	},
+	"math.mininteger":{
+		"body":"math.mininteger",
+		"description":"最小值的整数。\r\n返回值：\r\n  无",
+		"prefix":"math.mininteger"
+	},
+	"math.modf()":{
+		"body":"math.modf(${1:x})",
+		"description":"计算 x 的整数部分和小数部分。\r\n返回值：\r\n  返回 x 的整数部分和小数部分。 第二个结果一定是浮点数。",
+		"prefix":"math.modf()"
+	},
+	"math.pi":{
+		"body":"math.pi",
+		"description":"*π* 的值。\r\n返回值：\r\n  无",
+		"prefix":"math.pi"
+	},
+	"math.pow":{
+		"body":"math.pow(${0:...})",
+		"description":"math.pow (x, y)",
+		"prefix":"math.pow"
+	},
+	"math.rad()":{
+		"body":"math.rad(${0:...})",
+		"description":"将角 x 从角度转换为弧度。\r\n返回值：\r\n  角 x 从角度转换为弧度值",
+		"prefix":"math.rad()"
+	},
+	"math.random()":{
+		"body":"math.random(${1:[m]}${2:[, n]})",
+		"description":"随机数\r\n返回值：\r\n  当不带参数调用时， 返回一个 [0,1) 区间内一致分布的浮点伪随机数。 \r\n当以两个整数 m 与 n调用时， math.random返回一个 [m, n]区间 内一致分布的整数伪随机数。 （值 *m-n* 不能是负数，且必须在 Lua 整数的表示范围内。） \r\n调用 math.random(n) 等价于 math.random(1,n)。",
+		"prefix":"math.random()"
+	},
+	"math.randomseed()":{
+		"body":"math.randomseed(${0:...})",
+		"description":"把 x设为伪随机数发生器的“种子”： 相同的种子产生相同的随机数列。\r\n返回值：\r\n  无",
+		"prefix":"math.randomseed()"
+	},
+	"math.sin()":{
+		"body":"math.sin(${1:x})",
+		"description":"计算x正弦值（假定参数是弧度）\r\n返回值：\r\n  返回 x 的正弦值",
+		"prefix":"math.sin()"
+	},
+	"math.sinh":{
+		"body":"math.sinh(${0:...})",
+		"description":"math.sinh (x)",
+		"prefix":"math.sinh"
+	},
+	"math.sqrt()":{
+		"body":"math.sqrt(${1:x})",
+		"description":"计算x平方根\r\n返回值：\r\n  返回 x 的平方根。",
+		"prefix":"math.sqrt()"
+	},
+	"math.tan()":{
+		"body":"math.tan(${1:x})",
+		"description":"计算 x 的正切值，（假定参数是弧度）\r\n返回值：\r\n  返回 x 的正切值",
+		"prefix":"math.tan()"
+	},
+	"math.tanh":{
+		"body":"math.tanh(${0:...})",
+		"description":"math.tanh (x)",
+		"prefix":"math.tanh"
+	},
+	"math.tointeger()":{
+		"body":"math.tointeger(${1:x})",
+		"description":"将参数转换为整数\r\n返回值：\r\n  如果 x可以转换为一个整数， 返回该整数。 否则返回 nil。",
+		"prefix":"math.tointeger()"
+	},
+	"math.type()":{
+		"body":"math.type(${1:x})",
+		"description":"判断数字类型\r\n返回值：\r\n  如果 x 是整数，返回 \"integer\"， 如果它是浮点数，返回 \"float\"， 如果 x 不是数字，返回 nil。",
+		"prefix":"math.type()"
+	},
+	"math.ult()":{
+		"body":"math.ult(${0:...})",
+		"description":"数值比较\r\n返回值：\r\n  整数 m 和 n 以无符号整数形式比较， m 在 n 之下，返回布尔真否则返回假。",
+		"prefix":"math.ult()"
+	},
+
+
+
+
+}

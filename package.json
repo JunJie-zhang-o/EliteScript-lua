@@ -1,0 +1,51 @@
+{
+	"name": "EliteLua",
+	"displayName": "EliteScript_Lua",
+	"description": "Elite Robot Lua Script",
+	"author": "Elite",
+	"publisher": "Elite",
+	"icon": "images/Elitelua.png",
+	"version": "0.1.2",
+	"engines": {
+		"vscode": "^1.51.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Extension Packs"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "EliteScript_Lua",
+				"aliases": [
+					"EliteScript_Lua"
+				],
+				"extensions": [
+					".lua"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "EliteScript_Lua",
+				"scopeName": "source.lua",
+				"path": "./syntaxes/Elitescript_Lua.tmLanguage.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "EliteScript_Lua",
+				"path": "./snippets/EliteLua.code-snippets"
+			}
+		]
+	},
+	"extensionDependencies": [
+		"sumneko.lua"
+	],
+	"__metadata": {
+		"id": "8503629a-6801-4769-a908-d8bf53b23ed2",
+		"publisherId": "0cf1cda8-e2d6-4330-b4cf-26c112ffb1c7",
+		"publisherDisplayName": "Elite"
+	}
+}

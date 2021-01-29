@@ -1,0 +1,35 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Elitescript_Lua",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#variables"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.Elitescript_Lua",
+				"match": "\\b(if|while|for|return|)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.Elitescript_Lua",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.Elitescript_Lua",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.lua"
+}
