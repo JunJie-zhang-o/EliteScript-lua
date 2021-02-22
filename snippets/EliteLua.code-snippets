@@ -648,7 +648,7 @@
 		"scope": "lua",
 		"prefix": "string.format",
 		"body": [
-			"string.format(${1|\"c\",\"o\",\"u\",\"x\",\"X\",\"e\",\"E\",\"f\",\"q\",\"s\",\"d\",\"i\"|},$2)"
+			"string.format(${1|\"%c\",\"%o\",\"%u\",\"%x\",\"%X\",\"%e\",\"%E\",\"%f\",\"%q\",\"%s\",\"%d\",\"%i\"|},$2)"
 		],
 		"description": "字符串格式化"
 	},
@@ -1098,6 +1098,63 @@
 		"body":"math.ult(${0:...})",
 		"description":"数值比较\r\n返回值：\r\n  整数 m 和 n 以无符号整数形式比较， m 在 n 之下，返回布尔真否则返回假。",
 		"prefix":"math.ult()"
+	},
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//自定义函数库
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	"字符串转16进制": {
+		"scope": "lua",
+		"prefix": "func_str2hex",
+		"body": [
+			"--字符串转16进制",
+			"--如1234ABCD转为\\x12\\x34\\xAB\\xCD",
+			"function str2hex(str)",
+			"\t--判断输入类型",
+			"\tif (type(str)~=\"string\") then",
+			"\t\treturn nil,\"str2hex invalid input type\"",
+			"\tend",
+			"\t--滤掉分隔符",
+			"\tstr=str:gsub(\"[%s%p]\",\"\"):upper()",
+			"\t--检查内容是否合法",
+			"\tif(str:find(\"[^0-9A-Fa-f]\")~=nil) then",
+			"\t\treturn nil,\"str2hex invalid input content\"",
+			"\tend",
+			"\t--检查字符串长度",
+			"\tif(str:len()%2~=0) then",
+			"\t\treturn nil,\"str2hex invalid input lenth\"",
+			"\tend",
+			"\t--拼接字符串",
+			"\tlocal index=1",
+			"\tlocal ret=\"\"",
+			"\tfor index=1,str:len(),2 do",
+			"\t\tret=ret..string.char(tonumber(str:sub(index,index+1),16))",
+			"\tend",
+			"\treturn ret",
+			"end",
+		],
+		"description": "字符串转16进制"
+	},
+	"16进制转字符串": {
+		"scope": "lua",
+		"prefix": "func_hex2str",
+		"body": [
+			"--将16进制串转换为字符串",
+			"--如\\x12\\x34\\xAB\\xCD”转为“1234ABCD",
+			"function hex2str(hex)",
+			"\t--判断输入类型",
+			"\tif (type(hex)~=\"string\") then",
+			"\t\treturn nil,\"hex2str invalid input type\"",
+			"\tend",
+			"--拼接字符串",
+			"\tlocal index=1",
+			"\tlocal ret=\"\"",
+			"\tfor index=1,hex:len() do",
+			"\t\tret=ret..string.format(\"%02X\",hex:sub(index):byte())",
+			"\tend",
+			"\treturn ret",
+		"end",
+		],
+		"description": "16进制转字符串"
 	},
 
 
