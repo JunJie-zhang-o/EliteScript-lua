@@ -1106,8 +1106,8 @@
 		"scope": "lua",
 		"prefix": "func_str2hex",
 		"body": [
-			"--字符串转16进制",
-			"--如1234ABCD转为\\x12\\x34\\xAB\\xCD",
+			"-- 字符串转16进制",
+			"-- 如1234ABCD转为\\x12\\x34\\xAB\\xCD",
 			"function str2hex(str)",
 			"\t--判断输入类型",
 			"\tif (type(str)~=\"string\") then",
@@ -1145,7 +1145,7 @@
 			"\tif (type(hex)~=\"string\") then",
 			"\t\treturn nil,\"hex2str invalid input type\"",
 			"\tend",
-			"--拼接字符串",
+			"\t--拼接字符串",
 			"\tlocal index=1",
 			"\tlocal ret=\"\"",
 			"\tfor index=1,hex:len() do",
@@ -1177,7 +1177,7 @@
     		"\tend",
 			"end"
 		],
-		"description": "16进制转字符串"
+		"description": "将B变量用于计数并递增"
 	},
 
 
