@@ -1152,7 +1152,30 @@
 			"\t\tret=ret..string.format(\"%02X\",hex:sub(index):byte())",
 			"\tend",
 			"\treturn ret",
-		"end",
+			"end",
+		],
+		"description": "16进制转字符串"
+	},
+	"计数器(B变量)": {
+		"scope": "lua",
+		"prefix": "func_Counter",
+		"body": [
+			"-- 数据收发监控",
+			"-- 使用前需声明一个Counter_B数组，并初始化其值",
+			"-- 如：Counter_B={0,0,0,0,0}",
+			"-- Counter传入的值小于0，会将B变量从0开始初始化 Counter_B数量 位",
+			"-- Counter传入的值大于0，会将对应的B变量加1",
+			"function Counter(i)",                           
+    		"\tif(i<0)  then",
+        	"\t\tfor j=0,#Counter_B  do",
+            "\t\t\tset_global_variable(\"B\"..j,0)",
+            "\t\t\tCounter_B[j+1]=0",
+        	"\t\tend",
+    		"\telse",
+        	"\t\tCounter_B[i+1]=Counter_B[i+1]+1",
+        	"\t\tset_global_variable(\"B\"..i,Counter_B[i+1])",
+    		"\tend",
+			"end"
 		],
 		"description": "16进制转字符串"
 	},
