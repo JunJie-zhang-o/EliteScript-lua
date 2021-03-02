@@ -70,12 +70,12 @@ This extension provides function code blocks used by the Elite collaborative rob
 
 # 反馈	Feedback
 
-如果你发现了任何错误，请发邮件联系我们！！！
+如果你发现了任何错误，请联系我们！！！
 
-If you find any errors, you can contact us by email！！！
+If you find any errors, you can contact us by Github！！！
 
 ```
-  Email：tech@elibot.cn
+ https://github.com/JunJie-zhang-o/EliteScript-lua.git
 ```
 
 
