@@ -1179,6 +1179,72 @@
 		],
 		"description": "将B变量用于计数并递增"
 	},
+	"16位M区地址转换为十进制": {
+		"scope": "lua",
+		"prefix": "func_M2int16",
+		"body": [
+			"-- 将16位M区二进制转换为十进制",
+			"-- startBit:要转换的首地址",
+			"-- return:16位二进制转换过的十进制",
+			"--! ModBus通讯位从M528开始",
+			"function M2int16(startBit)",                           
+    		"\tlocal m={}",
+        	"\tfor i =0,15 do",
+            "\t\tm[i+1] = get_robot_io_status(\"M\"..(startBit+i))",
+            "\tend",
+        	"\treturn tonumber(string.format(\"%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d\",m[16],m[15],m[14],m[13],m[12],m[11],m[10],m[9],m[8],m[7],m[6],m[5],m[4],m[3],m[2],m[1]),2)",
+			"end"
+		],
+		"description": "16位M区地址转换为十进制"
+	},
+	"32位M区地址转换为float类型": {
+		"scope": "lua",
+		"prefix": "func_M2float32",
+		"body": [
+			"-- 将32位M区二进制转换为float类型",
+			"-- startBit:要转换的首地址",
+			"-- return:32位二进制转换过的小数",
+			"--! ModBus通讯位从M528开始",
+			"function M2float32(startBit)",     
+			"\t--从M区地址获取数据",                      
+    		"\tlocal m={}",
+        	"\tfor i =0,31 do",
+            "\t\tm[i+1] = get_robot_io_status(\"M\"..(startBit+i))",
+            "\tend",
+			"\t--*下面二进制顺序适用于西门子plc通讯",
+        	"\tdec_data=tonumber(string.format(\"%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d\",m[16],m[15],m[14],m[13],m[12],m[11],m[10],m[9],m[8],m[7],m[6],m[5],m[4],m[3],m[2],m[1],m[32],m[31],m[30],m[29],m[28],m[27],m[26],m[25],m[24],m[23],m[22],m[21],m[20],m[19],m[18],m[17]),2)",
+			"\thex_data=string.format(\"%08X\",dec_data)",
+			"\t--处理为unpack可以使用的数据",
+			"\tlocal unpack_data=\"\"",
+			"\tfor index=7,1,-2 do",
+			"\t\tunpack_data=unpack_data..string.char(tonumber(hex_data:sub(index,index+1),16))",
+			"\tend",
+			"\t--unpack解包",
+			"\tret=string.unpack(\"f\",unpack_data)",
+			"\treturn ret",
+			"end"
+		],
+		"description": "将32位M区地址转换为float类型"
+	},
+	"字符串分割": {
+		"scope": "lua",
+		"prefix": "func_string.split",
+		"body": [
+			"-- 字符串分割",
+			"function string.split(str,delimiter) ",                           
+    		"\tif str == nil or str == '' or delimiter == nil then",
+        	"\t\treturn nil",
+            "\tend",
+            "\tlocal result = {}",
+        	"\tfor match in (str..delimiter):gmatch(\"(.-)\"..delimiter) do",
+			"\t\ttable.insert(result,match)",
+			"\tend",
+			"\treturn result",
+			"end"
+		],
+		"description": "字符串分割"
+	},
+
 
 
 
