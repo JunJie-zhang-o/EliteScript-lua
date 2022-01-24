@@ -148,7 +148,7 @@
 	},
 	"逆解函数": {
 		"scope": "lua",
-		"prefix": " get_inv_kinematics",
+		"prefix": "get_inv_kinematics",
 		"body": [
 			"get_inv_kinematics(${1:table1},${2:table2})"
 		],
@@ -156,7 +156,7 @@
 	},
 	"正解函数": {
 		"scope": "lua",
-		"prefix": " get_fwd_kinematics",
+		"prefix": "get_fwd_kinematics",
 		"body": [
 			"get_fwd_kinematics(${1:table})"
 		],
@@ -172,7 +172,7 @@
 	},
 	"位姿的乘": {
 		"scope": "lua",
-		"prefix": " pose_mul",
+		"prefix": "pose_mul",
 		"body": [
 			"pose_mul(table1,tarble2)"
 		],
