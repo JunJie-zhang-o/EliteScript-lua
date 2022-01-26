@@ -148,7 +148,7 @@
 	},
 	"逆解函数": {
 		"scope": "lua",
-		"prefix": "get_inv_kinematics",
+		"prefix": " get_inv_kinematics",
 		"body": [
 			"get_inv_kinematics(${1:table1},${2:table2})"
 		],
@@ -156,7 +156,7 @@
 	},
 	"正解函数": {
 		"scope": "lua",
-		"prefix": "get_fwd_kinematics",
+		"prefix": " get_fwd_kinematics",
 		"body": [
 			"get_fwd_kinematics(${1:table})"
 		],
@@ -250,7 +250,23 @@
 		],
 		"description": "获取工具坐标系"
 	},
-	"获取用户坐标系": {
+	"获取工具坐标系编号": {
+		"scope": "lua",
+		"prefix": "get_tool_no ()",
+		"body": [
+			"get_tool_no ()"
+		],
+		"description": "获取工具坐标系编号"
+	},
+    "获取用户坐标系编号": {
+		"scope": "lua",
+		"prefix": "get_user_no",
+		"body": [
+			"get_user_no()"
+		],
+		"description": "获取用户坐标系编号"
+	},
+    "获取用户坐标系": {
 		"scope": "lua",
 		"prefix": "get_user_frame",
 		"body": [
@@ -266,7 +282,79 @@
 		],
 		"description": "检查工具坐标系是否使能"
 	},
-	"检查用户坐标系是否使能": {
+	"获取M变量寄存器接口 (0-191)": {
+		"scope": "lua",
+		"prefix": "get_robot_register",
+		"body": [
+			"get_robot_register(${1:int 0-191})"
+		],
+		"description": "获取 M 变量寄存器接口 "
+	},
+    " 设置M变量寄存器接口 (66-191)": {
+		"scope": "lua",
+		"prefix": "set_robot_register",
+		"body": [
+			"set_robot_register(${1:int 66-191},${2:int 1-128},${3:string})"
+		],
+		"description": "设置M变量寄存器接口 (66-191)"
+	},
+    "获取M变量寄存器接口(192-575)": {
+		"scope": "lua",
+		"prefix": "check_user_frame_enable",
+		"body": [
+			"get_robot_extra_register(${1:int 192-575})"
+		],
+		"description": "获取M变量寄存器接口(192-575)"
+	},
+    "设置M变量寄存器接口(300-447)": {
+		"scope": "lua",
+		"prefix": "set_robot_extra_register",
+		"body": [
+			"set_robot_extra_register (${1:int 300-447},${2:int size} ,${3:string})"
+		],
+		"description": "设置M变量寄存器接口(300-447)"
+	},
+    "获取当前 tcp 速度": {
+		"scope": "lua",
+		"prefix": "get_current_tcp_spd",
+		"body": [
+			"get_current_tcp_spd()"
+		],
+		"description": "获取当前 tcp 速度"
+	},
+    "获取法兰中心在当前基坐标系下的位姿": {
+		"scope": "lua",
+		"prefix": "get_flange_pose_inbase",
+		"body": [
+			"get_flange_pose_inbase()"
+		],
+		"description": "获取法兰中心在当前基坐标系下的位姿"
+	},
+    "获取法兰中心在当前用户坐标系下的位姿": {
+		"scope": "lua",
+		"prefix": "get_flange_pose_inuser",
+		"body": [
+			"get_flange_pose_inuser()"
+		],
+		"description": "获取法兰中心在当前用户坐标系下的位姿"
+	},
+    "获取当前 tcp 在当前用户坐标系下的位姿": {
+		"scope": "lua",
+		"prefix": "get_tcp_pose_inuser",
+		"body": [
+			"get_tcp_pose_inuser()"
+		],
+		"description": "获取当前 tcp 在当前用户坐标系下的位姿"
+	},
+    "获取末端 485 模式": {
+		"scope": "lua",
+		"prefix": "get_terminal_485_mode",
+		"body": [
+			"get_terminal_485_mode()"
+		],
+		"description": "获取末端 485 模式"
+	},
+    "检查用户坐标系是否使能": {
 		"scope": "lua",
 		"prefix": "check_user_frame_enable",
 		"body": [
@@ -274,6 +362,7 @@
 		],
 		"description": "检查用户坐标系是否使能"
 	},
+
 	//TCP通信部分
 	//TCP服务器
 	"初始化TCP服务器": {
@@ -349,6 +438,74 @@
 		],
 		"description": "断开TCP连接"
 	},
+    // UDP通信部分
+    "初始化 UDP 服务器": {
+		"scope": "lua",
+		"prefix": "init_udp_server",
+		"body": [
+			"init_udp_server (${1:port})"
+		],
+		"description": "初始化 UDP 服务器"
+	},
+    "接收 UDP 客户端数据": {
+		"scope": "lua",
+		"prefix": " udp_server_recv_data",
+		"body": [
+			" udp_server_recv_data(${1:port int},${2:time int})"
+		],
+		"description": "接收 UDP 客户端数据"
+	},
+    "向 udp 客户端发送数据": {
+		"scope": "lua",
+		"prefix": "udp_server_send_data",
+		"body": [
+			"udp_server_send_data(${1:servicePort int},${2:msg string},${3:clientPort int},${4:clientIp string})"
+		],
+		"description": "向 udp 客户端发送数据"
+	},
+    "关闭 udp 服务器": {
+		"scope": "lua",
+		"prefix": "close_udp_server",
+		"body": [
+			"close_udp_server(${1:port int})"
+		],
+		"description": "关闭 udp 服务器"
+	},
+
+    "连接 UDP 服务器": {
+		"scope": "lua",
+		"prefix": "connect_udp_server",
+		"body": [
+			"connect_udp_server(${1:port int},${2:ip string})"
+		],
+		"description": "连接 UDP 服务器"
+	},
+    "接收 UDP 服务器数据": {
+		"scope": "lua",
+		"prefix": "udp_client_recv_data",
+		"body": [
+			"udp_client_recv_data(${1:port int},${2:ip string},${3:timeout float})"
+		],
+		"description": "接收 UDP 服务器数据"
+	},
+
+    "向 udp 服务器发送数据": {
+		"scope": "lua",
+		"prefix": "udp_client_send_data",
+		"body": [
+			"udp_client_send_data(${1:port int},${2:ip string},${3:msg string})"
+		],
+		"description": "向 udp 服务器发送数据"
+	},
+    "取消连接 udp 服务器": {
+		"scope": "lua",
+		"prefix": "disconnect_udp_server",
+		"body": [
+			"disconnect_udp_server(${1:port int},${2:ip string})"
+		],
+		"description": "取消连接 udp 服务器"
+	},
+
 	//485通信部分
 	"打开485接口": {
 		"scope": "lua",
@@ -397,6 +554,56 @@
 			"rs485_flush()"
 		],
 		"description": "清空485缓冲区"
+	},
+    // 232通信
+    "打开 232 接口": {
+		"scope": "lua",
+		"prefix": "rs232_open",
+		"body": [
+			"rs232_open()"
+		],
+		"description": "打开 232 接口"
+	},
+    "设置 232 串口配置": {
+		"scope": "lua",
+		"prefix": "rs232_setopt",
+		"body": [
+			"rs232_setopt(${1:speed int},${2:bits int},${3:event 'O'|'N'|'E'},${stop 1|2})"
+		],
+		"description": "设置 232 串口配置"
+	},
+    "接收数据": {
+		"scope": "lua",
+		"prefix": "rs232_recv",
+		"body": [
+			"rs232_recv(${1:timeout ms int})"
+		],
+		"description": "接收数据"
+	},
+    "发送数据": {
+		"scope": "lua",
+		"prefix": "rs232_send",
+		"body": [
+			"rs232_send(${1:buff string})"
+		],
+		"description": "发送数据"
+	},
+    "关闭 232 接口": {
+		"scope": "lua",
+		"prefix": "rs232_close",
+		"body": [
+			"rs232_close()"
+		],
+		"description": "关闭 232 接口"
+	},
+
+    "清空 232 缓冲区": {
+		"scope": "lua",
+		"prefix": "rs232_flush",
+		"body": [
+			"rs232_flush()"
+		],
+		"description": "清空 232 缓冲区"
 	},
 	//TCI通信
 	"打开末端485接口": {
@@ -1102,60 +1309,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //自定义函数库
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	"字符串转16进制": {
-		"scope": "lua",
-		"prefix": "func_str2hex",
-		"body": [
-			"-- 字符串转16进制",
-			"-- 如1234ABCD转为\\x12\\x34\\xAB\\xCD",
-			"function str2hex(str)",
-			"\t--判断输入类型",
-			"\tif (type(str)~=\"string\") then",
-			"\t\treturn nil,\"str2hex invalid input type\"",
-			"\tend",
-			"\t--滤掉分隔符",
-			"\tstr=str:gsub(\"[%s%p]\",\"\"):upper()",
-			"\t--检查内容是否合法",
-			"\tif(str:find(\"[^0-9A-Fa-f]\")~=nil) then",
-			"\t\treturn nil,\"str2hex invalid input content\"",
-			"\tend",
-			"\t--检查字符串长度",
-			"\tif(str:len()%2~=0) then",
-			"\t\treturn nil,\"str2hex invalid input lenth\"",
-			"\tend",
-			"\t--拼接字符串",
-			"\tlocal index=1",
-			"\tlocal ret=\"\"",
-			"\tfor index=1,str:len(),2 do",
-			"\t\tret=ret..string.char(tonumber(str:sub(index,index+1),16))",
-			"\tend",
-			"\treturn ret",
-			"end",
-		],
-		"description": "字符串转16进制"
-	},
-	"16进制转字符串": {
-		"scope": "lua",
-		"prefix": "func_hex2str",
-		"body": [
-			"--将16进制串转换为字符串",
-			"--如\\x12\\x34\\xAB\\xCD”转为“1234ABCD",
-			"function hex2str(hex)",
-			"\t--判断输入类型",
-			"\tif (type(hex)~=\"string\") then",
-			"\t\treturn nil,\"hex2str invalid input type\"",
-			"\tend",
-			"\t--拼接字符串",
-			"\tlocal index=1",
-			"\tlocal ret=\"\"",
-			"\tfor index=1,hex:len() do",
-			"\t\tret=ret..string.format(\"%02X\",hex:sub(index):byte())",
-			"\tend",
-			"\treturn ret",
-			"end",
-		],
-		"description": "16进制转字符串"
-	},
 	"计数器(B变量)": {
 		"scope": "lua",
 		"prefix": "func_Counter",
@@ -1244,9 +1397,551 @@
 		],
 		"description": "字符串分割"
 	},
-
-
-
-
-
+    "16进制转二进制": {
+		"scope": "lua",
+		"prefix": "func_Hex2bin",
+		"body": [
+            "-- 16进制转二进制",
+            "function Hex2bin(n)",
+            "    local str = ''",
+            "    fori = 1, string.len(n) - 1, 2do  ",
+            "       local bytestr = string.sub(n, i, i+1)",
+            "       local n = tonumber(bytestr, 16)",
+            "       local t = {}",
+            "       for i=7,0,-1do",
+            "           t[#t+1] = math.floor(n / 2^i)",
+            "           str = str..t[#t]",
+            "           n = n % 2^i",
+            "       end",
+            "   end",
+            "   return str",
+            "end"
+		],
+		"description": "16进制转二进制"
+	},
+    "有符号32为整形16进制转10进制": {
+		"scope": "lua",
+		"prefix": "func_SignInt32_2_Dec",
+		"body": [
+            "-- 有符号32为整形16进制转10进制",
+            "function SignInt32_2_Dec(int_buf,i)",
+            "    local dec",
+            "    local sign",
+            "    local div",
+            "    local dec_buf = tonumber(int_buf,16)",
+            "    if dec_buf >= 32768 then",
+            "        dec = 65536 - dec_buf",
+            "        sign = -1",
+            "    else",
+            "        dec = dec_buf",
+            "        sign = 1",
+            "    end",
+            "    if i <= 3 then",
+            "        div = 100",
+            "    else",
+            "        div = 1000",
+            "    end",
+            "    return dec*sign/div",
+            "end",
+		],
+		"description": "有符号32为整形16进制转10进制"
+	},
+    "将16进制串转换为字符串": {
+		"scope": "lua",
+		"prefix": "func_Hex2str",
+		"body": [
+            "--将16进制串转换为字符串",
+            "--如\\x12\\x34\\xAB\\xCD'转为'1234ABCD",
+            "function Hex2str(hex)",
+            "    --判断输入类型",
+            "    if (type(hex)~='string') then",
+            "        return nil,'hex2str invalid input type'",
+            "    end",
+            "    --拼接字符串",
+            "    local index=1",
+            "    local ret=''",
+            "    for index=1,hex:len() do",
+            "        ret=ret..string.format('%02X',hex:sub(index):byte())",
+            "    end",
+            "    return ret",
+            "end",
+		],
+		"description": "将16进制串转换为字符串"
+	},
+    "字符串转16进制": {
+		"scope": "lua",
+		"prefix": "func_str2hex",
+		"body": [
+            "-- 字符串转16进制",
+            "-- 如1234ABCD转为\\x12\\x34\\xAB\\xCD",
+            "function str2hex(str)",
+            "    --判断输入类型",
+            "    if (type(str)~='string') then",
+            "        return nil,'str2hex invalid input type'",
+            "    end",
+            "    --滤掉分隔符",
+            "    str=str:gsub('[%s%p]',''):upper()",
+            "    --检查内容是否合法",
+            "    if(str:find('[^0-9A-Fa-f]')~=nil) then",
+            "        return nil,'str2hex invalid input content'",
+            "    end",
+            "    --检查字符串长度",
+            "    if(str:len()%2~=0) then",
+            "        return nil,'str2hex invalid input lenth'",
+            "    end",
+            "    --拼接字符串",
+            "    local index=1",
+            "    local ret=''",
+            "    for index=1,str:len(),2 do",
+            "        ret=ret..string.char(tonumber(str:sub(index,index+1),16))",
+            "    end",
+            "    return ret",
+            "end",
+		],
+		"description": "字符串转16进制"
+	},
+    "十进制转二进制补码": {
+		"scope": "lua",
+		"prefix": "func_num2bin",
+		"body": [
+            "--十进制转二进制补码",
+            "function num2bin(n)",
+            "    local t = {}",
+            "    if n>=0 then",
+            "        for i=15,0,-1 do",
+            "            t[#t+1] = math.floor(n / 2^i)",
+            "            n = n % 2^i",
+            "        end",
+            "    else",
+            "        n=-n-1",
+            "        for i=14,0,-1 do",
+            "            t[#t+1] = math.floor(n / 2^i)",
+            "            n = n % 2^i",
+            "            if t[#t]==0 then",
+            "                t[#t]=1",
+            "            else",
+            "                t[#t]=0",
+            "            end",
+            "        end",
+            "        table.insert(t,1,1)",
+            "    end",
+            "    return table.concat(t)",
+            "end",
+		],
+		"description": "十进制转二进制补码"
+	},
+    "crc校验": {
+		"scope": "lua",
+		"prefix": "func_get_crc8",
+		"body": [
+            "--data:",
+            "--crcin:",
+            "--poly:",
+            "--refin:",
+            "--refout:",
+            "function get_crc8(data, crcin, poly)",
+            "    local str = ''",
+            "    local len = #data",
+            "    local crc = crcin &0xff",
+            "    local u8poly = poly &0xff",
+            "    for i=1,len do",
+            "        crc = crc ~ data[i]",
+            "        for j=1,8 do",
+            "            if ((crc & 0x80)==0x80) then",
+            "            crc = (crc << 1) ~ u8poly",
+            "            else",
+            "            crc = (crc << 1)",
+            "            end",
+            "            crc =crc&0xff",
+            "        end",
+            "    end",
+            "    return crc",
+            "end",
+		],
+		"description": "crc校验"
+	},
+    "欧拉角转四元素": {
+		"scope": "lua",
+		"prefix": "func_euler_2_Quaternons",
+		"body": [
+            "-- 下列方式适用于静轴xyz和动轴zyx的欧拉角表示方式",
+            "function Euler_2_Quaternons(rx,ry,rz)",
+            "    local i = 1",
+            "    local j = 2",
+            "    local k = 3",
+            "    local ai = rx / 2.0",
+            "    local aj = ry / 2.0",
+            "    local ak = rz / 2.0",
+            "    ",
+            "    local ci = math.cos(ai)",
+            "    local si = math.sin(ai)",
+            "    local cj = math.cos(aj)",
+            "    local sj = math.sin(aj)",
+            "    local ck = math.cos(ak)",
+            "    local sk = math.sin(ak)",
+            "    ",
+            "    local cc = ci * ck",
+            "    local cs = ci * sk",
+            "    local sc = si * ck",
+            "    local ss = si * sk",
+            "    ",
+            "    local q = {0,0,0,0}",
+            "    q[1] = cj * cc + sj * ss",
+            "    q[i+1] = cj * sc - sj * cs",
+            "    q[j+1] = cj * ss + sj * cc",
+            "    q[k+1] = cj * cs - sj * sc",
+            "    print(q[1],q[2],q[3],q[4])",
+            "    return q",
+            "end",
+		],
+		"description": "欧拉角转四元素"
+	},
+    "四元素转旋转矩阵": {
+		"scope": "lua",
+		"prefix": "func_quaternons_2_Matrix",
+		"body": [
+            "function Quaternons_2_Matrix(quaternion)",
+            "    local q = {quaternion[1],quaternion[2],quaternion[3],quaternion[4]}",
+            "    local n = q[1]*q[1] + q[2]*q[2] + q[3]*q[3] + q[4]*q[4]",
+            "",
+            "    local _EPS = 8.881784197001252e-16",
+            "    if n < _EPS then    ",
+            "        local ret = {{1,0,0,0},",
+            "                     {0,1,0,0},",
+            "                     {0,0,1,0},",
+            "                     {0,0,0,1}}",
+            "        return ret",
+            "    end",
+            "",
+            "    for i = 1, 4, 1  do",
+            "        q[i] = q[i] * math.sqrt(2 / n)",
+            "    end",
+            "",
+            "    local n_q = {}",
+            "    for i = 1, 4, 1  do",
+            "        n_q[i]={}",
+            "        for j=1,4,1  do",
+            "            n_q[i][j] = q[i] * q[j]",
+            "        end",
+            "    end",
+            "    local ret_1",
+            "    local ret_1 = {1 - n_q[3][3] - n_q[4][4],",
+            "                  n_q[2][3] - n_q[4][1],",
+            "                  n_q[2][4] + n_q[3][1],",
+            "                  0} ",
+            "    local ret_2 = {n_q[2][3] + n_q[4][1],",
+            "                   1 - n_q[2][2] - n_q[4][4],",
+            "                   n_q[3][4] - n_q[2][1],",
+            "                   0}",
+            "    local ret_3 = {n_q[2][4] - n_q[3][1],",
+            "                   n_q[3][4] + n_q[2][1],",
+            "                   1 - n_q[2][2] - n_q[3][3],",
+            "                   0}",
+            "    local ret_4 = {0,0,0,1}",
+            "    local ret = {ret_1,ret_2,ret_3,ret_4}",
+            "    return ret",
+            "end",
+		],
+		"description": "四元素转旋转矩阵"
+	},
+    "旋转矩阵转欧拉角": {
+		"scope": "lua",
+		"prefix": "func_matrix_2_Euler",
+		"body": [
+            "-- 下列方式适用于静轴xyz和动轴zyx的欧拉角表示方式",
+            "function Matrix_2_Euler(matrix)",
+            "",
+            "    local i = 0",
+            "    local j = 1",
+            "    local k = 2",
+            "    local M = {}",
+            "    for index = 1,3 do",
+            "        M[index] = {}",
+            "        for iindex = 1,3 do",
+            "            M[index][iindex] = matrix[index][iindex]",
+            "        end",
+            "    end",
+            "",
+            "    local _EPS = 8.881784197001252e-16 ",
+            "    local cy = math.sqrt(M[i+1][i+1] * M[i+1][i+1] + M[j+1][i+1] * M[j+1][i+1])",
+            "    local rx, ry, rz",
+            "    if cy > _EPS then",
+            "        rx = math.atan2(M[k+1][j+1],M[k+1][k+1])",
+            "        ry = math.atan2(-M[k+1][i+1],cy)",
+            "        rz = math.atan2(M[j+1][i+1],M[i+1][i+1])",
+            "    else",
+            "        rx = math.atan2(-M[j+1][k+1], M[j+1][j+1])",
+            "        ry = math.atan2(-M[k+1][i+1], cy)",
+            "        rz = 0",
+            "    end",
+            "    return rx,ry,rz",
+            "end",
+		],
+		"description": "旋转矩阵转欧拉角"
+	},
+    "四元素转欧拉角": {
+		"scope": "lua",
+		"prefix": "func_quaternons_2_Euler",
+		"body": [
+            "-- 下列方式适用于静轴xyz和动轴zyx的欧拉角表示方式",
+            "function Quaternons_2_Euler(quaternion)",
+            "    local matrix = {}",
+            "    matrix = Quaternons_2_Matrix(quaternion)",
+            "    local ax,ay,az",
+            "    ax, ay, az = Matrix_2_Euler(matrix)",
+            "    return ax, ay, az",
+            "end",
+		],
+		"description": "四元素转欧拉角"
+	},
+    // 实例代码
+    "tcp客户端实例代码":{
+        "scope": "lua",
+		"prefix": "example_tcp_client",
+		"body": [
+            "--[[",
+            "    Author: 林铭",
+            "    Date: 2022-01-15 17:51:32",
+            "    LastEditTime: 2022-01-17 11:24:26",
+            "    Description:TCP 客户端向服务器进行请求简易通信示例",
+            "]]--",
+            "",
+            "-- D0:脚本控制",
+            "-- D1:是否发送数据",
+            "-- D2:发送的数据内容",
+            "",
+            "ip = '192.168.1.10'                         -- 目标服务器端IP地址",
+            "port = 7777                                 -- 目标服务器端口",
+            "----------------------------------------------------------------------------------------------",
+            "sleep(2)",
+            "",
+            "script_state = 'D0'",
+            "send_state = 'D1'",
+            "send_cmd = 'D2'",
+            "",
+            "recv_x = 'D10'",
+            "recv_y = 'D11'",
+            "recv_z = 'D12'",
+            "recv_rx = 'D13'",
+            "recv_ry = 'D14'",
+            "recv_rz = 'D15'",
+            "----------------------------------------------------------------------------------------------",
+            "function var_init()                                                       -- 脚本启动，变量复位",
+            "    set_global_variable(script_state, 0)",
+            "    set_global_variable(send_state, 0)",
+            "    set_global_variable(send_cmd, 0)",
+            "end",
+            "----------------------------------------------------------------------------------------------",
+            "function get_msgs(i)                                                            -- 规定发送指令",
+            "    -- 根据需要填写对应的命令",
+            "    local msgs = {}",
+            "    msgs[1] = \"This is msg\"                         --",
+            "    msgs[2] = \"Please modify as required\"           --",
+            "    msgs[3] = \"设置数据发送的内容\"                   --",
+            "    msgs[4] = \"根据实际需求更改对应的命令内容\"        --",
+            "",
+            "    msgs[5] = \"\"        --",
+            "    msgs[6] = \"\"        --",
+            "    msgs[7] = \"\"        --",
+            "    msgs[8] = \"\"        --",
+            "    msgs[9] = \"\"        --",
+            "    return msgs[i]",
+            "end",
+            "----------------------------------------------------------------------------------------------",
+            "function Tcp_client_init(ip, port)                                    -- 连接服务器，设置超时时间",
+            "    local ret = connect_tcp_server(ip, port) ",
+            "    local RECV_TIME_OUT = 0.1                         -- 接收超时时间，根据实际使用情况进行修改",
+            "    client_set_recv_timeout(ip, RECV_TIME_OUT)",
+            "    if ret == 1 then ",
+            "        elite_print(\"client connect \"..ip..\" success\")",
+            "    else",
+            "        elite_print(\"connect error\")",
+            "    end",
+            "end ",
+            "----------------------------------------------------------------------------------------------",
+            "function send_msg(data)                                                             -- 发送数据",
+            "    if #data <= 0 then",
+            "        elite_print(\"data length error\")",
+            "    end",
+            "    local ret = client_send_data(ip, data)-- 发送信息",
+            "    if ret == -1 then",
+            "        elite_print(\"send data error\")",
+            "    end",
+            "end",
+            "----------------------------------------------------------------------------------------------",
+            "function repeat_B(i)                                                    -- 循环判断变量是否为0",
+            "    repeat",
+            "        elite_print(\"Wait \"..(i)..\" ~= 0\")",
+            "        sleep(0.5)",
+            "    until(get_global_variable(i) ~= 0)",
+            "end",
+            "---------------------------------------------------------------------------------------------",
+            "function recv_msg()                                                                -- 接收数据",
+            "    while (1) do ",
+            "        local ret, recv = client_recv_data(ip)          -- 接收服务器端返回的信息",
+            "        if ret <= 0 then",
+            "            elite_print(\"client recv data error\")",
+            "        else",
+            "            elite_print(recv)",
+            "            local temp = string.split(data,\",\")",
+            "            return temp",
+            "        end",
+            "    end",
+            "",
+            "end",
+            "---------------------------------------------------------------------------------------------",
+            "function Example1(data)                                             -- 示例数据处理1",
+            "    for i,v in ipairs(data) do ",
+            "        elite_print(v)",
+            "    end",
+            "end",
+            "-------------------------------------------main----------------------------------------------",
+            "var_init()",
+            "repeat_B(script_state)                                              -- 等待 B0 为0，连接服务器",
+            "elite_print(\"Script running starts\")",
+            "",
+            "Tcp_client_init(ip, port)",
+            "",
+            "while(get_global_variable(script_state) ~= 0) do",
+            "    is_send = get_global_variable(send_state)",
+            "",
+            "    if is_send ~= 0 then",
+            "        cmd = get_global_variable(send_cmd)",
+            "",
+            "        if cmd == 1 then",
+            "            send_msg(get_msgs(cmd))",
+            "            recv_table = recv_spilt(recv_msg())",
+            "",
+            "            -- 数据处理1 --",
+            "            Example1(recv_table)",
+            "",
+            "",
+            "        elseif cmd == 2 then",
+            "            send_msg(get_msgs(cmd))",
+            "            recv_table = recv_spilt(recv_msg())",
+            "            -- 数据处理 --",
+            "",
+            "        elseif cmd == 3 then",
+            "            send_msg(get_msgs(cmd))",
+            "            recv_table = recv_spilt(recv_msg())",
+            "            -- 数据处理 --",
+            "",
+            "",
+            "        end",
+            "",
+            "        set_global_variable(send_state, 0)",
+            "        set_global_variable(send_cmd, 0)",
+            "    end",
+            "",
+            "    sleep(0.001)",
+            "end",
+            "",
+            "disconnect_tcp_server(ip)",
+            "elite_print(\"Script execution ends\")",
+		],
+		"description": "tcp客户端实例代码"
+    },
+    "tcp服务器实例代码": {
+		"scope": "lua",
+		"prefix": "example_tcp_service",
+		"body": [
+            "--[[",
+            "    Author: 林铭",
+            "    Date: 2022-01-15 17:51:32",
+            "    LastEditTime: 2022-01-17 11:24:26",
+            "    Description:tcp 服务器",
+            "]]--",
+            "",
+            "-- D0:脚本控制",
+            "",
+            "sleep(1)",
+            "----------------------------------------------------------------------------------------------",
+            "",
+            "server_port = 7777",
+            "client_ip = \"192.168.1.10\"",
+            "",
+            "script_state = \"D0\"",
+            "----------------------------------------------------------------------------------------------",
+            "function var_init()                                                       -- 脚本启动，变量复位",
+            "    set_global_variable(script_state, 0)",
+            "end",
+            "----------------------------------------------------------------------------------------------",
+            "function send_msg(data)                                                             -- 发送数据",
+            "    if #data <= 0 then",
+            "        elite_print(\"data length error\")",
+            "    end",
+            "    local ret = server_send_data(client_ip, data)-- 发送信息",
+            "    if ret == -1 then",
+            "        elite_print(\"send data error\")",
+            "    end",
+            "end",
+            "----------------------------------------------------------------------------------------------",
+            "function repeat_B(i)                                                    -- 循环判断变量是否为0",
+            "    repeat",
+            "        elite_print(\"Wait \"..(i)..\" ~= 0\")",
+            "        sleep(0.5)",
+            "    until(get_global_variable(i) ~= 0)",
+            "end",
+            "---------------------------------------------------------------------------------------------",
+            "function recv_msg()                                                                -- 接收数据",
+            "    local ret, recv = server_recv_data(client_ip)                                   -- 接收服务器端返回的信息",
+            "    if ret <= 0 then",
+            "        return nil",
+            "    end",
+            "    return recv",
+            "end",
+            "---------------------------------------------------------------------------------------------",
+            "function send_msg(msg)                                                            -- 发送数据",
+            "    server_send_data(client_ip, msg)    ",
+            "end",
+            "---------------------------------------------------------------------------------------------",
+            "function wait_client_connect(ip)                                          -- 判断是否有客户端连接",
+            "    while 1 do ",
+            "        local ret = is_client_connected(ip)",
+            "        if ret == 1 then",
+            "            elite_print(ip, \"client connect success\")",
+            "            break",
+            "        end",
+            "        elite_print(\"Wait client connect!\")",
+            "        sleep(1)",
+            "    end",
+            "end",
+            "---------------------------------------------------------------------------------------------",
+            "function Example1(data)                                             -- 示例数据处理1",
+            "    local current_joint = get_robot_joint()",
+            "    local temp = \"robotJoint,\"..current_joint[1]..\",\"..current_joint[2]..\",\"..current_joint[3]..\",\"..current_joint[4]..\",\"..current_joint[5]..\",\"..current_joint[6]",
+            "    send_msg(temp)",
+            "end",
+            "---------------------------------------------main--------------------------------------------",
+            "set_global_variable(script_state, 0)                                -- init var",
+            "repeat_B(script_state)                                              -- wait script run",
+            "",
+            "elite_print(\"Script running starts\")",
+            "init_tcp_server(server_port)                                        -- init tcp server",
+            "elite_print(\"Tcp server init success, port is \", server_port)",
+            "wait_client_connect(client_ip)                                      -- wait client connect",
+            "",
+            "while(get_global_variable(script_state) ~= 0) do",
+            "    ",
+            "    msg = recv_msg()                                                -- recv msg and reply",
+            "",
+            "    if msg == \"robotJoint\" then",
+            "",
+            "        Example1()",
+            "",
+            "    elseif msg == \"Here is an example of receiving data\" then ",
+            "",
+            "    elseif msg == \"Please modify as required\" then ",
+            "",
+            "    elseif msg == \"根据实际需求更改对应的请求内容\" then",
+            "",
+            "    end",
+            "    sleep(0.001)",
+            "end",
+            "",
+            "",
+            "elite_print(\"Script execution ends\")",
+		],
+		"description": "tcp服务器实例代码"
+	},
 }
