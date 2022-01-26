@@ -43,6 +43,10 @@
 	"extensionDependencies": [
 		"sumneko.lua"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JunJie-zhang-o/EliteScript-lua.git"
+	},
 	"__metadata": {
 		"id": "8503629a-6801-4769-a908-d8bf53b23ed2",
 		"publisherId": "0cf1cda8-e2d6-4330-b4cf-26c112ffb1c7",
