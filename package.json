@@ -5,13 +5,17 @@
 	"author": "Elite",
 	"publisher": "Elite",
 	"icon": "images/Elitelua.png",
-	"version": "0.1.6",
+	"version": "0.1.7",
 	"engines": {
 		"vscode": "^1.51.0"
 	},
 	"categories": [
 		"Programming Languages",
 		"Extension Packs"
+	],
+	"main": "./out/main",
+	"activationEvents": [
+		"onStartupFinished"
 	],
 	"contributes": {
 		"languages": [
@@ -26,7 +30,6 @@
 				"configuration": "./language-configuration.json"
 			}
 		],
-
 		"grammars": [
 			{
 				"language": "EliteScript_Lua",
@@ -38,6 +41,10 @@
 			{
 				"language": "EliteScript_Lua",
 				"path": "./snippets/EliteLua.code-snippets"
+			},
+			{
+				"language": "lua",
+				"path": "./snippets/Elite.code-snippets"
 			}
 		]
 	},

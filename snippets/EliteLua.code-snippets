@@ -164,7 +164,7 @@
 	},
 	"逆解函数": {
 		"scope": "lua",
-		"prefix": " get_inv_kinematics",
+		"prefix": "get_inv_kinematics",
 		"body": [
 			"get_inv_kinematics(${1:table1},${2:table2})"
 		],
@@ -172,7 +172,7 @@
 	},
 	"正解函数": {
 		"scope": "lua",
-		"prefix": " get_fwd_kinematics",
+		"prefix": "get_fwd_kinematics",
 		"body": [
 			"get_fwd_kinematics(${1:table})"
 		],
@@ -268,9 +268,9 @@
 	},
 	"获取工具坐标系编号": {
 		"scope": "lua",
-		"prefix": "get_tool_no ()",
+		"prefix": "get_tool_no",
 		"body": [
-			"get_tool_no ()"
+			"get_tool_no()"
 		],
 		"description": "获取工具坐标系编号"
 	},
@@ -465,7 +465,7 @@
 	},
     "接收 UDP 客户端数据": {
 		"scope": "lua",
-		"prefix": " udp_server_recv_data",
+		"prefix": "udp_server_recv_data",
 		"body": [
 			" udp_server_recv_data(${1:port int},${2:time int})"
 		],
