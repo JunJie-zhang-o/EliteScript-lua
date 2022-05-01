@@ -6,6 +6,12 @@
 
 #### 				Always Easier Than Before
 
+> 艾利特技术论坛：[技术论坛](https://bbs.elibot.cn/)
+>
+> Elite Technology Forum：[Technology Forum](https://bbs.elibot.cn/forum/index/section/14.html)
+>
+> 艾利特学院（B站账号）：[艾利特学院](https://space.bilibili.com/548925152?spm_id_from=333.337.search-card.all.click)
+
 
 
 # Lua
