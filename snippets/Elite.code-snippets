@@ -711,21 +711,77 @@
 		],
 		"description": "设置slave地址"
 	},
-	"往指定地址写入值": {
+	"往保持寄存器写入值": {
 		"scope": "lua",
 		"prefix": "modbus_write_register",
 		"body": [
 			"modbus_write_register(${1:ctx},${2:int},${3:int})"
 		],
-		"description": "往指定地址写入值"
+		"description": "往保持寄存器写入值"
 	},
-	"从指定地址读出值": {
+	"从保持寄存器读出值": {
 		"scope": "lua",
 		"prefix": "modbus_read_register",
 		"body": [
 			"modbus_read_register(${1:ctx},${2:int})"
 		],
-		"description": "从指定地址读出值"
+		"description": "从保持寄存器读出值"
+	},
+    "从指定多个线圈读取信号值": {
+		"scope": "lua",
+		"prefix": "modbus_read_bits",
+		"body": [
+			"modbus_read_bits(${1:ctx},${2:int},${3:len})"
+		],
+		"description": "从指定多个线圈读取信号值"
+	},
+    "往指定多个线圈写入值": {
+		"scope": "lua",
+		"prefix": "modbus_write_bits",
+		"body": [
+			"modbus_write_bits(${1:ctx},${2:int},${3:len},${4:table})"
+		],
+		"description": "往指定多个线圈写入值"
+	},
+    "往指定线圈写入值": {
+		"scope": "lua",
+		"prefix": "modbus_write_bit",
+		"body": [
+			"modbus_write_bit(${1:ctx},${2:int},${3:value})"
+		],
+		"description": "往指定线圈写入值"
+	},
+    "读输入寄存器值": {
+		"scope": "lua",
+		"prefix": "modbus_read_input_register",
+		"body": [
+			"modbus_read_input_register(${1:ctx},${2:addr})"
+		],
+		"description": "读输入寄存器值"
+	},
+    " 往指定多个寄存器地址写入值": {
+		"scope": "lua",
+		"prefix": "modbus_write_registers",
+		"body": [
+			"modbus_write_registers(${1:ctx},${2:int},${3:len},${4:table})"
+		],
+		"description": "往指定多个寄存器地址写入值"
+	},
+    " 读取多个寄存器的值": {
+		"scope": "lua",
+		"prefix": "modbus_read_registers",
+		"body": [
+			"modbus_read_registers(${1:ctx},${2:addr},${3:len})"
+		],
+		"description": "读取多个寄存器的值"
+	},
+    " 获取多个输入线圈状态": {
+		"scope": "lua",
+		"prefix": "modbus_read_input_bits",
+		"body": [
+			"modbus_read_input_bits(${1:ctx},${2:addr},${3:len})"
+		],
+		"description": "获取多个输入线圈状态"
 	},
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //自定义函数库
