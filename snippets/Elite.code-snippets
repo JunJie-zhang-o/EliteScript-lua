@@ -102,687 +102,726 @@
 		"description": "false"
 	},
 	//常用函数
-	"延时等待": {
-		"scope": "lua",
-		"prefix": "sleep",
-		"body": [
-			"sleep(${1})",
-		],
-		"description": [
-			"示例:sleep(0.1)",
-			"延时等待0.1s"
-		]
-	},
-	"设置机器人本体IO状态": {
-		"scope": "lua",
-		"prefix": "set_robot_io_status",
-		"body": "set_robot_io_status(${1:string}, ${2:int/double})",
-		"description": [
-			"示例:set_robot_io_status (“m20”,1) ",
-			"\r注释:设置M20为1"
-		]
-	},
-	"获取机器人本体IO状态": {
-		"scope": "lua",
-		"prefix": "get_robot_io_status",
-		"body": [
-			"get_robot_io_status(${1:string})"
-		],
-		"description": "获取机器人本体IO状态"
-	},
-	"获取示教器全局变量值": {
-		"scope": "lua",
-		"prefix": "get_global_variable",
-		"body": [
-			"get_global_variable(${1:string})"
-		],
-		"description": "获取示教器全局变量值"
-	},
-	" 设置示教器全局变量值": {
-		"scope": "lua",
-		"prefix": "set_global_variable",
-		"body": [
-			"set_global_variable(${1:string},${2:Value})"
-		],
-		"description": " 设置示教器全局变量值"
-	},
-	"设置是否调试模式": {
-		"scope": "lua",
-		"prefix": "set_debug",
-		"body": [
-			"set_debug(${1|0,1|})"
-		],
-		"description": "设置是否调试模式"
-	},
-	"打印信息至示教器界面": {
-		"scope": "lua",
-		"prefix": "elite_print",
-		"body": [
-			"elite_print(${1:string})"
-		],
-		"description": "打印信息至示教器界面"
-	},
-	"逆解函数": {
-		"scope": "lua",
-		"prefix": "get_inv_kinematics",
-		"body": [
-			"get_inv_kinematics(${1:table1},${2:table2})"
-		],
-		"description": "逆解函数"
-	},
-	"正解函数": {
-		"scope": "lua",
-		"prefix": "get_fwd_kinematics",
-		"body": [
-			"get_fwd_kinematics(${1:table})"
-		],
-		"description": "正解函数"
-	},
-	"位姿的逆": {
-		"scope": "lua",
-		"prefix": "pose_inv",
-		"body": [
-			"pose_inv(${1:table1})"
-		],
-		"description": "位姿的逆"
-	},
-	"位姿的乘": {
-		"scope": "lua",
-		"prefix": "pose_mul",
-		"body": [
-			"pose_mul(table1,tarble2)"
-		],
-		"description": "位姿的乘"
-	},
-	"获取机器人模式": {
-		"scope": "lua",
-		"prefix": "get_robot_mode",
-		"body": [
-			"get_robot_mode()"
-		],
-		"description": "获取机器人模式"
-	},
-	"获取机器人JBI运行模式": {
-		"scope": "lua",
-		"prefix": "get_cycle_mode",
-		"body": [
-			"get_cycle_mode()"
-		],
-		"description": "获取机器人JBI运行模式"
-	},
-	"获取机器人伺服使能状态": {
-		"scope": "lua",
-		"prefix": "get_servo_status",
-		"body": [
-			"get_servo_status()"
-		],
-		"description": "获取机器人伺服使能状态"
-	},
-	"获取机器人运行状态": {
-		"scope": "lua",
-		"prefix": "get_robot_state",
-		"body": [
-			"get_robot_state()"
-		],
-		"description": "获取机器人运行状态"
-	},
-	"获取机器人坐标系": {
-		"scope": "lua",
-		"prefix": "get_current_coord",
-		"body": [
-			"get_current_coord()"
-		],
-		"description": "获取机器人坐标系"
-	},
-	"获取机器人位姿": {
-		"scope": "lua",
-		"prefix": "get_robot_pose",
-		"body": [
-			"get_robot_pose()"
-		],
-		"description": "获取机器人位姿"
-	},
-	"获取机器人关节角度": {
-		"scope": "lua",
-		"prefix": "get_robot_joint",
-		"body": [
-			"get_robot_joint()"
-		],
-		"description": "获取机器人关节角度"
-	},
-	"获取机器人力矩信息": {
-		"scope": "lua",
-		"prefix": "get_robot_torque",
-		"body": [
-			"get_robot_torque()"
-		],
-		"description": "获取机器人力矩信息"
-	},
-	"获取工具坐标系": {
-		"scope": "lua",
-		"prefix": "get_tool_frame",
-		"body": [
-			"get_tool_frame(${1|0,1,2,3,4,5,6,7|})"
-		],
-		"description": "获取工具坐标系"
-	},
-	"获取工具坐标系编号": {
-		"scope": "lua",
-		"prefix": "get_tool_no",
-		"body": [
-			"get_tool_no()"
-		],
-		"description": "获取工具坐标系编号"
-	},
-    "获取用户坐标系编号": {
-		"scope": "lua",
-		"prefix": "get_user_no",
-		"body": [
-			"get_user_no()"
-		],
-		"description": "获取用户坐标系编号"
-	},
-    "获取用户坐标系": {
-		"scope": "lua",
-		"prefix": "get_user_frame",
-		"body": [
-			"get_user_frame(${1|0,1,2,3,4,5,6,7|})"
-		],
-		"description": "获取用户坐标系"
-	},
-	"检查工具坐标系是否使能": {
-		"scope": "lua",
-		"prefix": "check_tool_frame_enable",
-		"body": [
-			"check_tool_frame_enable(${1|0,1,2,3,4,5,6,7|})"
-		],
-		"description": "检查工具坐标系是否使能"
-	},
-	"获取M变量寄存器接口 (0-191)": {
-		"scope": "lua",
-		"prefix": "get_robot_register",
-		"body": [
-			"get_robot_register(${1:int 0-191})"
-		],
-		"description": "获取 M 变量寄存器接口 "
-	},
-    " 设置M变量寄存器接口 (66-191)": {
-		"scope": "lua",
-		"prefix": "set_robot_register",
-		"body": [
-			"set_robot_register(${1:int 66-191},${2:int 1-128},${3:string})"
-		],
-		"description": "设置M变量寄存器接口 (66-191)"
-	},
-    "获取M变量寄存器接口(192-575)": {
-		"scope": "lua",
-		"prefix": "check_user_frame_enable",
-		"body": [
-			"get_robot_extra_register(${1:int 192-575})"
-		],
-		"description": "获取M变量寄存器接口(192-575)"
-	},
-    "设置M变量寄存器接口(300-447)": {
-		"scope": "lua",
-		"prefix": "set_robot_extra_register",
-		"body": [
-			"set_robot_extra_register (${1:int 300-447},${2:int size} ,${3:string})"
-		],
-		"description": "设置M变量寄存器接口(300-447)"
-	},
-    "获取当前 tcp 速度": {
-		"scope": "lua",
-		"prefix": "get_current_tcp_spd",
-		"body": [
-			"get_current_tcp_spd()"
-		],
-		"description": "获取当前 tcp 速度"
-	},
-    "获取法兰中心在当前基坐标系下的位姿": {
-		"scope": "lua",
-		"prefix": "get_flange_pose_inbase",
-		"body": [
-			"get_flange_pose_inbase()"
-		],
-		"description": "获取法兰中心在当前基坐标系下的位姿"
-	},
-    "获取法兰中心在当前用户坐标系下的位姿": {
-		"scope": "lua",
-		"prefix": "get_flange_pose_inuser",
-		"body": [
-			"get_flange_pose_inuser()"
-		],
-		"description": "获取法兰中心在当前用户坐标系下的位姿"
-	},
-    "获取当前 tcp 在当前用户坐标系下的位姿": {
-		"scope": "lua",
-		"prefix": "get_tcp_pose_inuser",
-		"body": [
-			"get_tcp_pose_inuser()"
-		],
-		"description": "获取当前 tcp 在当前用户坐标系下的位姿"
-	},
-    "获取末端 485 模式": {
-		"scope": "lua",
-		"prefix": "get_terminal_485_mode",
-		"body": [
-			"get_terminal_485_mode()"
-		],
-		"description": "获取末端 485 模式"
-	},
-    "检查用户坐标系是否使能": {
-		"scope": "lua",
-		"prefix": "check_user_frame_enable",
-		"body": [
-			"check_user_frame_enable(${1|0,1,2,3,4,5,6,7|})"
-		],
-		"description": "检查用户坐标系是否使能"
-	},
-
-	//TCP通信部分
-	//TCP服务器
-	"初始化TCP服务器": {
-		"scope": "lua",
-		"prefix": "init_tcp_server",
-		"body": [
-			"init_tcp_server(${1:int})"
-		],
-		"description": "初始化TCP服务器"
-	},
-	"判断客户端是否连接了服务器": {
-		"scope": "lua",
-		"prefix": "is_client_connected",
-		"body": [
-			"is_client_connected(${1:stringip})"
-		],
-		"description": "判断客户端是否连接了服务器"
-	},
-	"接收客户端数据": {
-		"scope": "lua",
-		"prefix": "server_recv_data",
-		"body": [
-			"server_recv_data(${1:stringip})"
-		],
-		"description": "接收客户端数据"
-	},
-	"向客户端发送数据": {
-		"scope": "lua",
-		"prefix": "server_send_data",
-		"body": [
-			"server_send_data(${1:stringip},${2:stringmsg})"
-		],
-		"description": "向客户端发送数据"
-	},
-	//TCP客户端
-	"连接服务器": {
-		"scope": "lua",
-		"prefix": "connect_tcp_server",
-		"body": [
-			"connect_tcp_server(${1:stringip},${2:intport})"
-		],
-		"description": "连接服务器"
-	},
-	"接收服务器数据": {
-		"scope": "lua",
-		"prefix": "client_recv_data",
-		"body": [
-			"client_recv_data(${1:stringip},${2:double},${3|0,1|})"
-		],
-		"description": "接收服务器数据"
-	},
-	"整体设置超时时间": {
-		"scope": "lua",
-		"prefix": "client_set_recv_timeout",
-		"body": [
-			"client_set_recv_timeout(${1:stringip},${2:double})"
-		],
-		"description": "整体设置超时时间"
-	},
-	"向服务器发送数据": {
-		"scope": "lua",
-		"prefix": "client_send_data",
-		"body": [
-			"client_send_data(${1:stringip},${2:double})"
-		],
-		"description": "向服务器发送数据"
-	},
-	"断开TCP连接": {
-		"scope": "lua",
-		"prefix": "disconnect_tcp_server",
-		"body": [
-			"disconnect_tcp_server(${1:stringip})"
-		],
-		"description": "断开TCP连接"
-	},
-    // UDP通信部分
-    "初始化 UDP 服务器": {
-		"scope": "lua",
-		"prefix": "init_udp_server",
-		"body": [
-			"init_udp_server (${1:port})"
-		],
-		"description": "初始化 UDP 服务器"
-	},
-    "接收 UDP 客户端数据": {
-		"scope": "lua",
-		"prefix": "udp_server_recv_data",
-		"body": [
-			" udp_server_recv_data(${1:port int},${2:time int})"
-		],
-		"description": "接收 UDP 客户端数据"
-	},
-    "向 udp 客户端发送数据": {
-		"scope": "lua",
-		"prefix": "udp_server_send_data",
-		"body": [
-			"udp_server_send_data(${1:servicePort int},${2:msg string},${3:clientPort int},${4:clientIp string})"
-		],
-		"description": "向 udp 客户端发送数据"
-	},
-    "关闭 udp 服务器": {
-		"scope": "lua",
-		"prefix": "close_udp_server",
-		"body": [
-			"close_udp_server(${1:port int})"
-		],
-		"description": "关闭 udp 服务器"
-	},
-
-    "连接 UDP 服务器": {
-		"scope": "lua",
-		"prefix": "connect_udp_server",
-		"body": [
-			"connect_udp_server(${1:port int},${2:ip string})"
-		],
-		"description": "连接 UDP 服务器"
-	},
-    "接收 UDP 服务器数据": {
-		"scope": "lua",
-		"prefix": "udp_client_recv_data",
-		"body": [
-			"udp_client_recv_data(${1:port int},${2:ip string},${3:timeout float})"
-		],
-		"description": "接收 UDP 服务器数据"
-	},
-
-    "向 udp 服务器发送数据": {
-		"scope": "lua",
-		"prefix": "udp_client_send_data",
-		"body": [
-			"udp_client_send_data(${1:port int},${2:ip string},${3:msg string})"
-		],
-		"description": "向 udp 服务器发送数据"
-	},
-    "取消连接 udp 服务器": {
-		"scope": "lua",
-		"prefix": "disconnect_udp_server",
-		"body": [
-			"disconnect_udp_server(${1:port int},${2:ip string})"
-		],
-		"description": "取消连接 udp 服务器"
-	},
-
-	//485通信部分
-	"打开485接口": {
-		"scope": "lua",
-		"prefix": "rs485_open",
-		"body": [
-			"rs485_open()"
-		],
-		"description": "打开485接口"
-	},
-	"设置485串口配置": {
-		"scope": "lua",
-		"prefix": "rs485_setopt",
-		"body": [
-			"rs485_setopt(${4:speed},${1|8,7|},${2|\"N\",\"O\",\"E\"|},${3|1,2|})"
-		],
-		"description": "设置485串口配置"
-	},
-	"RS485接收数据": {
-		"scope": "lua",
-		"prefix": "rs485_recv",
-		"body": [
-			"rs485_recv(${1:int},${2:int})"
-		],
-		"description": "RS485接收数据"
-	},
-	"RS485发送数据": {
-		"scope": "lua",
-		"prefix": "rs485_send",
-		"body": [
-			"rs485_send(${2:string},${1|0,1|})"
-		],
-		"description": "RS485发送数据"
-	},
-	"关闭485接口": {
-		"scope": "lua",
-		"prefix": "rs485_close",
-		"body": [
-			"rs485_close()"
-		],
-		"description": "关闭485接口"
-	},
-	"清空485缓冲区": {
-		"scope": "lua",
-		"prefix": "rs485_flush",
-		"body": [
-			"rs485_flush()"
-		],
-		"description": "清空485缓冲区"
-	},
-    // 232通信
-    "打开 232 接口": {
-		"scope": "lua",
-		"prefix": "rs232_open",
-		"body": [
-			"rs232_open()"
-		],
-		"description": "打开 232 接口"
-	},
-    "设置 232 串口配置": {
-		"scope": "lua",
-		"prefix": "rs232_setopt",
-		"body": [
-			"rs232_setopt(${1:speed int},${2:bits int},${3:event 'O'|'N'|'E'},${stop 1|2})"
-		],
-		"description": "设置 232 串口配置"
-	},
-    "接收数据": {
-		"scope": "lua",
-		"prefix": "rs232_recv",
-		"body": [
-			"rs232_recv(${1:timeout ms int})"
-		],
-		"description": "接收数据"
-	},
-    "发送数据": {
-		"scope": "lua",
-		"prefix": "rs232_send",
-		"body": [
-			"rs232_send(${1:buff string})"
-		],
-		"description": "发送数据"
-	},
-    "关闭 232 接口": {
-		"scope": "lua",
-		"prefix": "rs232_close",
-		"body": [
-			"rs232_close()"
-		],
-		"description": "关闭 232 接口"
-	},
-
-    "清空 232 缓冲区": {
-		"scope": "lua",
-		"prefix": "rs232_flush",
-		"body": [
-			"rs232_flush()"
-		],
-		"description": "清空 232 缓冲区"
-	},
-	//TCI通信
-	"打开末端485接口": {
-		"scope": "lua",
-		"prefix": "tci_open",
-		"body": [
-			"tci_open()"
-		],
-		"description": "打开末端485接口"
-	},
-	"设置TCI串口配置": {
-		"scope": "lua",
-		"prefix": "tci_setopt",
-		"body": [
-			"tci_setopt(${4:speed},${1|8,7|},${2|\"N\",\"O\",\"E\"|},${3|1,2|})"
-		],
-		"description": "设置TCI串口配置"
-	},
-	"TCI接收数据": {
-		"scope": "lua",
-		"prefix": "tci_recv",
-		"body": [
-			"tci_recv(${2:int},${1|0,1|})"
-		],
-		"description": "TCI接收数据"
-	},
-	"TCI发送数据": {
-		"scope": "lua",
-		"prefix": "tci_send",
-		"body": [
-			"tci_send(${2:string},${1|0,1|})"
-		],
-		"description": "TCI发送数据"
-	},
-	"关闭TCI接口": {
-		"scope": "lua",
-		"prefix": "tci_close",
-		"body": [
-			"tci_close()"
-		],
-		"description": "关闭TCI接口"
-	},
-	"清空TCI缓冲区": {
-		"scope": "lua",
-		"prefix": "tci_flush",
-		"body": [
-			"tci_flush()"
-		],
-		"description": "清空TCI缓冲区"
-	},
-	//Modbus Master
-	"获取modbusRTU句柄": {
-		"scope": "lua",
-		"prefix": "modbus_new_rtu",
-		"body": [
-			"modbus_new_rtu(${1|0,1,2|},${2:speed},${3|8,7|},${4|\"N\",\"O\",\"E\"|},${5|1,2|})"
-		],
-		"description": "获取modbusRTU句柄"
-	},
-	"获取modbusTCP句柄": {
-		"scope": "lua",
-		"prefix": "modbus_new_tcp",
-		"body": [
-			"modbus_new_tcp(${1:stringip},${2|intport|})"
-		],
-		"description": "获取modbusTCP句柄"
-	},
-	"连接modbus句柄": {
-		"scope": "lua",
-		"prefix": "modbus_connect",
-		"body": [
-			"modbus_connect(${1:ctx})"
-		],
-		"description": "连接modbus句柄"
-	},
-	"关闭modbus句柄": {
-		"scope": "lua",
-		"prefix": "modbus_close",
-		"body": [
-			"modbus_close(${1:ctx})"
-		],
-		"description": "关闭modbus句柄"
-	},
-	"设置slave地址": {
-		"scope": "lua",
-		"prefix": "modbus_set_slave",
-		"body": [
-			"modbus_set_slave(${1:ctx},${2:slaveid})"
-		],
-		"description": "设置slave地址"
-	},
-	"往保持寄存器写入值": {
-		"scope": "lua",
-		"prefix": "modbus_write_register",
-		"body": [
-			"modbus_write_register(${1:ctx},${2:int},${3:int})"
-		],
-		"description": "往保持寄存器写入值"
-	},
-	"从保持寄存器读出值": {
-		"scope": "lua",
-		"prefix": "modbus_read_register",
-		"body": [
-			"modbus_read_register(${1:ctx},${2:int})"
-		],
-		"description": "从保持寄存器读出值"
-	},
-    "从指定多个线圈读取信号值": {
-		"scope": "lua",
-		"prefix": "modbus_read_bits",
-		"body": [
-			"modbus_read_bits(${1:ctx},${2:int},${3:len})"
-		],
-		"description": "从指定多个线圈读取信号值"
-	},
-    "往指定多个线圈写入值": {
-		"scope": "lua",
-		"prefix": "modbus_write_bits",
-		"body": [
-			"modbus_write_bits(${1:ctx},${2:int},${3:len},${4:table})"
-		],
-		"description": "往指定多个线圈写入值"
-	},
-    "往指定线圈写入值": {
-		"scope": "lua",
-		"prefix": "modbus_write_bit",
-		"body": [
-			"modbus_write_bit(${1:ctx},${2:int},${3:value})"
-		],
-		"description": "往指定线圈写入值"
-	},
-    "读输入寄存器值": {
-		"scope": "lua",
-		"prefix": "modbus_read_input_register",
-		"body": [
-			"modbus_read_input_register(${1:ctx},${2:addr})"
-		],
-		"description": "读输入寄存器值"
-	},
-    " 往指定多个寄存器地址写入值": {
-		"scope": "lua",
-		"prefix": "modbus_write_registers",
-		"body": [
-			"modbus_write_registers(${1:ctx},${2:int},${3:len},${4:table})"
-		],
-		"description": "往指定多个寄存器地址写入值"
-	},
-    " 读取多个寄存器的值": {
-		"scope": "lua",
-		"prefix": "modbus_read_registers",
-		"body": [
-			"modbus_read_registers(${1:ctx},${2:addr},${3:len})"
-		],
-		"description": "读取多个寄存器的值"
-	},
-    " 获取多个输入线圈状态": {
-		"scope": "lua",
-		"prefix": "modbus_read_input_bits",
-		"body": [
-			"modbus_read_input_bits(${1:ctx},${2:addr},${3:len})"
-		],
-		"description": "获取多个输入线圈状态"
-	},
+    "延时 ":{
+        "scope": "lua",
+        "prefix": "sleep",
+        "body": [
+            "sleep(${1:second})"
+        ],
+        "description": "延时 "
+    },
+    "设置机械臂本体 IO 状态 ":{
+        "scope": "lua",
+        "prefix": "set_robot_io_status",
+        "body": [
+            "set_robot_io_status(${1:name},${2:value})"
+        ],
+        "description": "设置机械臂本体 IO 状态 "
+    },
+    "获取机器人臂本体 IO 状态 ":{
+        "scope": "lua",
+        "prefix": "get_robot_io_status",
+        "body": [
+            "get_robot_io_status(${1:name})"
+        ],
+        "description": "获取机器人臂本体 IO 状态 "
+    },
+    "获取示教器全局变量值 ":{
+        "scope": "lua",
+        "prefix": "get_global_variable",
+        "body": [
+            "get_global_variable(${1:varName})"
+        ],
+        "description": "获取示教器全局变量值 "
+    },
+    "设置示教器全局变量值 ":{
+        "scope": "lua",
+        "prefix": "set_global_variable",
+        "body": [
+            "set_global_variable(${1:varName},${2:varValue})"
+        ],
+        "description": "设置示教器全局变量值 "
+    },
+    "设置是否调试模式 ":{
+        "scope": "lua",
+        "prefix": "set_debug",
+        "body": [
+            "set_debug(${1:debug})"
+        ],
+        "description": "设置是否调试模式 "
+    },
+    "打印信息至示教器界面 ":{
+        "scope": "lua",
+        "prefix": "elite_print",
+        "body": [
+            "elite_print(${1:var1},${2:var2....})"
+        ],
+        "description": "打印信息至示教器界面 "
+    },
+    "逆解函数 ":{
+        "scope": "lua",
+        "prefix": "get_inv_kinematics",
+        "body": [
+            "get_inv_kinematics(${1:var1},${2:var2})"
+        ],
+        "description": "逆解函数 "
+    },
+    "正解函数 ":{
+        "scope": "lua",
+        "prefix": "get_fwd_kinematics",
+        "body": [
+            "get_fwd_kinematics(${1:var1})"
+        ],
+        "description": "正解函数 "
+    },
+    "位姿的逆 ":{
+        "scope": "lua",
+        "prefix": "pose_inv",
+        "body": [
+            "pose_inv(${1:var1})"
+        ],
+        "description": "位姿的逆 "
+    },
+    "位姿的乘 ":{
+        "scope": "lua",
+        "prefix": "pose_mul",
+        "body": [
+            "pose_mul(${1:var1},${2:var2})"
+        ],
+        "description": "位姿的乘 "
+    },
+    "获取机器人模式 ":{
+        "scope": "lua",
+        "prefix": "get_robot_mode",
+        "body": [
+            "get_robot_mode()"
+        ],
+        "description": "获取机器人模式 "
+    },
+    "获取机器人 JBI 运行模式 ":{
+        "scope": "lua",
+        "prefix": "get_cycle_mode",
+        "body": [
+            "get_cycle_mode()"
+        ],
+        "description": "获取机器人 JBI 运行模式 "
+    },
+    "获取机器人伺服使能状态 ":{
+        "scope": "lua",
+        "prefix": "get_servo_status",
+        "body": [
+            "get_servo_status()"
+        ],
+        "description": "获取机器人伺服使能状态 "
+    },
+    "获取机器人运行状态 ":{
+        "scope": "lua",
+        "prefix": "get_robot_state",
+        "body": [
+            "get_robot_state()"
+        ],
+        "description": "获取机器人运行状态 "
+    },
+    "获取机器人坐标系 ":{
+        "scope": "lua",
+        "prefix": "get_current_coord",
+        "body": [
+            "get_current_coord()"
+        ],
+        "description": "获取机器人坐标系 "
+    },
+    "获取机器人位姿 ":{
+        "scope": "lua",
+        "prefix": "get_robot_pose",
+        "body": [
+            "get_robot_pose()"
+        ],
+        "description": "获取机器人位姿 "
+    },
+    "获取机器人关节角度 ":{
+        "scope": "lua",
+        "prefix": "get_robot_joint",
+        "body": [
+            "get_robot_joint()"
+        ],
+        "description": "获取机器人关节角度 "
+    },
+    "获取机器人力矩信息 ":{
+        "scope": "lua",
+        "prefix": "get_robot_torque",
+        "body": [
+            "get_robot_torque()"
+        ],
+        "description": "获取机器人力矩信息 "
+    },
+    "获取工具坐标系位姿 ":{
+        "scope": "lua",
+        "prefix": "get_tool_frame",
+        "body": [
+            "get_tool_frame(${1:num})"
+        ],
+        "description": "获取工具坐标系位姿 "
+    },
+    "获取用户坐标系位姿 ":{
+        "scope": "lua",
+        "prefix": "get_user_frame",
+        "body": [
+            "get_user_frame(${1:num})"
+        ],
+        "description": "获取用户坐标系位姿 "
+    },
+    "获取工具坐标系编号 ":{
+        "scope": "lua",
+        "prefix": "get_tool_no",
+        "body": [
+            "get_tool_no()"
+        ],
+        "description": "获取工具坐标系编号 "
+    },
+    "获取用户坐标系编号 ":{
+        "scope": "lua",
+        "prefix": "get_user_no",
+        "body": [
+            "get_user_no()"
+        ],
+        "description": "获取用户坐标系编号 "
+    },
+    "检查工具启用状态 ":{
+        "scope": "lua",
+        "prefix": "check_tool_frame_enable",
+        "body": [
+            "check_tool_frame_enable(${1:num})"
+        ],
+        "description": "检查工具启用状态 "
+    },
+    "检查用户坐标启用状态 ":{
+        "scope": "lua",
+        "prefix": "check_user_frame_enable",
+        "body": [
+            "check_user_frame_enable(${1:num})"
+        ],
+        "description": "检查用户坐标启用状态 "
+    },
+    "获取 M 变量寄存器接口 (0-191) ":{
+        "scope": "lua",
+        "prefix": "get_robot_register",
+        "body": [
+            "get_robot_register(${1:index})"
+        ],
+        "description": "获取 M 变量寄存器接口 (0-191) "
+    },
+    "设置 M 变量寄存器接口 (66-191) ":{
+        "scope": "lua",
+        "prefix": "set_robot_register",
+        "body": [
+            "set_robot_register(${1:index},${2:size},${3:string})"
+        ],
+        "description": "设置 M 变量寄存器接口 (66-191) "
+    },
+    "获取 M 变量寄存器接口（192-575） ":{
+        "scope": "lua",
+        "prefix": "get_robot_extra_register",
+        "body": [
+            "get_robot_extra_register(${1:index})"
+        ],
+        "description": "获取 M 变量寄存器接口（192-575） "
+    },
+    "设置 M 变量寄存器接口（300-447） ":{
+        "scope": "lua",
+        "prefix": "set_robot_extra_register",
+        "body": [
+            "set_robot_extra_register(${1:index},${2:size},${3:string})"
+        ],
+        "description": "设置 M 变量寄存器接口（300-447） "
+    },
+    "获取当前 tcp 速度 ":{
+        "scope": "lua",
+        "prefix": "get_current_tcp_spd",
+        "body": [
+            "get_current_tcp_spd()"
+        ],
+        "description": "获取当前 tcp 速度 "
+    },
+    "获取法兰中心在当前基坐标系下的位姿 ":{
+        "scope": "lua",
+        "prefix": "get_flange_pose_inbase",
+        "body": [
+            "get_flange_pose_inbase()"
+        ],
+        "description": "获取法兰中心在当前基坐标系下的位姿 "
+    },
+    "获取法兰中心在当前用户坐标系下的位姿 ":{
+        "scope": "lua",
+        "prefix": "get_flange_pose_inuser",
+        "body": [
+            "get_flange_pose_inuser()"
+        ],
+        "description": "获取法兰中心在当前用户坐标系下的位姿 "
+    },
+    "获取机器人位姿 ":{
+        "scope": "lua",
+        "prefix": "get_tcp_pose",
+        "body": [
+            "get_tcp_pose()"
+        ],
+        "description": "获取机器人位姿 "
+    },
+    "获取当前 tcp 在当前用户坐标系下的位姿 ":{
+        "scope": "lua",
+        "prefix": "get_tcp_pose_inuser",
+        "body": [
+            "get_tcp_pose_inuser()"
+        ],
+        "description": "获取当前 tcp 在当前用户坐标系下的位姿 "
+    },
+    "获取末端 485 模式 ":{
+        "scope": "lua",
+        "prefix": "get_terminal_485_mode",
+        "body": [
+            "get_terminal_485_mode()"
+        ],
+        "description": "获取末端 485 模式 "
+    },
+    "初始化 TCP 服务器 ":{
+        "scope": "lua",
+        "prefix": "init_tcp_server",
+        "body": [
+            "init_tcp_server(${1:port})"
+        ],
+        "description": "初始化 TCP 服务器 "
+    },
+    "判断客户端是否连接了服务器 ":{
+        "scope": "lua",
+        "prefix": "is_client_connected",
+        "body": [
+            "is_client_connected(${1:IP},${2:port})"
+        ],
+        "description": "判断客户端是否连接了服务器 "
+    },
+    "接收客户端数据 ":{
+        "scope": "lua",
+        "prefix": "server_recv_data",
+        "body": [
+            "server_recv_data(${1:IP},${2:hex},${3:port},${4:recv_timeout})"
+        ],
+        "description": "接收客户端数据 "
+    },
+    "向客户端发送数据 ":{
+        "scope": "lua",
+        "prefix": "server_send_data",
+        "body": [
+            "server_send_data(${1:IP},${2:msg},${3:hex},${4:port})"
+        ],
+        "description": "向客户端发送数据 "
+    },
+    "连接服务器 ":{
+        "scope": "lua",
+        "prefix": "connect_tcp_server",
+        "body": [
+            "connect_tcp_server(${1:IP},${2:port})"
+        ],
+        "description": "连接服务器 "
+    },
+    "接收服务器数据 ":{
+        "scope": "lua",
+        "prefix": "client_recv_data",
+        "body": [
+            "client_recv_data(${1:IP},${2:recv_timeout},${3:hex},${4:port})"
+        ],
+        "description": "接收服务器数据 "
+    },
+    "整体设置超时时间 ":{
+        "scope": "lua",
+        "prefix": "client_set_recv_timeout",
+        "body": [
+            "client_set_recv_timeout(${1:IP},${2:recv_timeout})"
+        ],
+        "description": "整体设置超时时间 "
+    },
+    "向服务器发送数据 ":{
+        "scope": "lua",
+        "prefix": "client_send_data",
+        "body": [
+            "client_send_data(${1:IP},${2:msg},${3:hex},${4:port})"
+        ],
+        "description": "向服务器发送数据 "
+    },
+    "断开 TCP 连接 ":{
+        "scope": "lua",
+        "prefix": "disconnect_tcp_server",
+        "body": [
+            "disconnect_tcp_server(${1:IP},${2:port})"
+        ],
+        "description": "断开 TCP 连接 "
+    },
+    "初始化 UDP 服务器 ":{
+        "scope": "lua",
+        "prefix": "init_udp_server",
+        "body": [
+            "init_udp_server(${1:port})"
+        ],
+        "description": "初始化 UDP 服务器 "
+    },
+    "接收 UDP 客户端数据 ":{
+        "scope": "lua",
+        "prefix": "udp_server_recv_data",
+        "body": [
+            "udp_server_recv_data(${1:port},${2:timeout},${3:he})"
+        ],
+        "description": "接收 UDP 客户端数据 "
+    },
+    "向 UDP 客户端发送数据 ":{
+        "scope": "lua",
+        "prefix": "udp_server_send_data",
+        "body": [
+            "udp_server_send_data(${1:server_port},${2:msg},${3:client_port},${4:client_ip},${5:hex})"
+        ],
+        "description": "向 UDP 客户端发送数据 "
+    },
+    "关闭 udp 服务器 ":{
+        "scope": "lua",
+        "prefix": "close_udp_server",
+        "body": [
+            "close_udp_server(${1:port})"
+        ],
+        "description": "关闭 udp 服务器 "
+    },
+    "连接 UDP 服务器 ":{
+        "scope": "lua",
+        "prefix": "connect_udp_server",
+        "body": [
+            "connect_udp_server(${1:port},${2:IP})"
+        ],
+        "description": "连接 UDP 服务器 "
+    },
+    "接收 UDP 服务器数据 ":{
+        "scope": "lua",
+        "prefix": "udp_client_recv_data",
+        "body": [
+            "udp_client_recv_data(${1:port},${2:IP},${3:timeout},${4:hex})"
+        ],
+        "description": "接收 UDP 服务器数据 "
+    },
+    "向 UDP 服务器发送数据 ":{
+        "scope": "lua",
+        "prefix": "udp_client_send_data",
+        "body": [
+            "udp_client_send_data(${1:port},${2:IP},${3:msg},${4:hex})"
+        ],
+        "description": "向 UDP 服务器发送数据 "
+    },
+    "取消连接 udp 服务器 ":{
+        "scope": "lua",
+        "prefix": "disconnect_udp_server",
+        "body": [
+            "disconnect_udp_server(${1:port},${2:IP})"
+        ],
+        "description": "取消连接 udp 服务器 "
+    },
+    "打开 485 接口 ":{
+        "scope": "lua",
+        "prefix": "rs485_open",
+        "body": [
+            "rs485_open()"
+        ],
+        "description": "打开 485 接口 "
+    },
+    "设置 485 串口配置 ":{
+        "scope": "lua",
+        "prefix": "rs485_setopt",
+        "body": [
+            "rs485_setopt(${1:speed},${2:bits},${3:event},${4:stop})"
+        ],
+        "description": "设置 485 串口配置 "
+    },
+    "接收数据 ":{
+        "scope": "lua",
+        "prefix": "rs485_recv",
+        "body": [
+            "rs485_recv(${1:time_out},${2:hex},${3:len})"
+        ],
+        "description": "接收数据 "
+    },
+    "发送数据 ":{
+        "scope": "lua",
+        "prefix": "rs485_send",
+        "body": [
+            "rs485_send(${1:buff},${2:hex})"
+        ],
+        "description": "发送数据 "
+    },
+    "关闭 485 接口 ":{
+        "scope": "lua",
+        "prefix": "rs485_close",
+        "body": [
+            "rs485_close()"
+        ],
+        "description": "关闭 485 接口 "
+    },
+    "清空 485 缓冲区 ":{
+        "scope": "lua",
+        "prefix": "rs485_flush",
+        "body": [
+            "rs485_flush()"
+        ],
+        "description": "清空 485 缓冲区 "
+    },
+    "打开 232 接口 ":{
+        "scope": "lua",
+        "prefix": "rs232_open",
+        "body": [
+            "rs232_open()"
+        ],
+        "description": "打开 232 接口 "
+    },
+    "设置 232 串口配置 ":{
+        "scope": "lua",
+        "prefix": "rs232_setopt",
+        "body": [
+            "rs232_setopt(${1:speed},${2:bits},${3:event},${4:stop})"
+        ],
+        "description": "设置 232 串口配置 "
+    },
+    "接收数据 ":{
+        "scope": "lua",
+        "prefix": "rs232_recv",
+        "body": [
+            "rs232_recv(${1:time_out},${2:hex},${3:len})"
+        ],
+        "description": "接收数据 "
+    },
+    "发送数据 ":{
+        "scope": "lua",
+        "prefix": "rs232_send",
+        "body": [
+            "rs232_send(${1:buff},${2:hex})"
+        ],
+        "description": "发送数据 "
+    },
+    "关闭 232 接口 ":{
+        "scope": "lua",
+        "prefix": "rs232_close",
+        "body": [
+            "rs232_close()"
+        ],
+        "description": "关闭 232 接口 "
+    },
+    "清空 232 缓冲区 ":{
+        "scope": "lua",
+        "prefix": "rs232_flush",
+        "body": [
+            "rs232_flush()"
+        ],
+        "description": "清空 232 缓冲区 "
+    },
+    "打开末端 485 接口 ":{
+        "scope": "lua",
+        "prefix": "tci_open",
+        "body": [
+            "tci_open()"
+        ],
+        "description": "打开末端 485 接口 "
+    },
+    "设置 TCI 串口的配置 ":{
+        "scope": "lua",
+        "prefix": "tci_setopt",
+        "body": [
+            "tci_setopt(${1:speed},${2:bits},${3:event},${4:stop})"
+        ],
+        "description": "设置 TCI 串口的配置 "
+    },
+    "接收数据 ":{
+        "scope": "lua",
+        "prefix": "tci_recv",
+        "body": [
+            "tci_recv(${1:time_out},${2:hex},${3:len})"
+        ],
+        "description": "接收数据 "
+    },
+    "发送数据 ":{
+        "scope": "lua",
+        "prefix": "tci_send",
+        "body": [
+            "tci_send(${1:buff},${2:hex})"
+        ],
+        "description": "发送数据 "
+    },
+    "关闭 TCI 接口 ":{
+        "scope": "lua",
+        "prefix": "tci_close",
+        "body": [
+            "tci_close()"
+        ],
+        "description": "关闭 TCI 接口 "
+    },
+    "清空 TCI 缓冲区 ":{
+        "scope": "lua",
+        "prefix": "tci_flush",
+        "body": [
+            "tci_flush()"
+        ],
+        "description": "清空 TCI 缓冲区 "
+    },
+    "获取 modbusrtu 句柄 ":{
+        "scope": "lua",
+        "prefix": "modbus_new_rtu",
+        "body": [
+            "modbus_new_rtu(${1:choose},${2:baud},${3:parity},${4:data_bit},${5:stop_bit})"
+        ],
+        "description": "获取 modbusrtu 句柄 "
+    },
+    "获取 modbustcp 句柄 ":{
+        "scope": "lua",
+        "prefix": "modbus_new_tcp",
+        "body": [
+            "modbus_new_tcp(${1:IP},${2:port})"
+        ],
+        "description": "获取 modbustcp 句柄 "
+    },
+    "连接 modbus 句柄 ":{
+        "scope": "lua",
+        "prefix": "modbus_connect",
+        "body": [
+            "modbus_connect(${1:ctx})"
+        ],
+        "description": "连接 modbus 句柄 "
+    },
+    "关闭 modbus 句柄 ":{
+        "scope": "lua",
+        "prefix": "modbus_close",
+        "body": [
+            "modbus_close(${1:ctx})"
+        ],
+        "description": "关闭 modbus 句柄 "
+    },
+    "设置 slave 地址 ":{
+        "scope": "lua",
+        "prefix": "modbus_set_slave",
+        "body": [
+            "modbus_set_slave(${1:ctx},${2:slave_id})"
+        ],
+        "description": "设置 slave 地址 "
+    },
+    "modbus 往指定寄存器地址写入值 ":{
+        "scope": "lua",
+        "prefix": "modbus_write_register",
+        "body": [
+            "modbus_write_register(${1:ctx},${2:reg},${3:value})"
+        ],
+        "description": "modbus 往指定寄存器地址写入值 "
+    },
+    "modbus 从指定寄存器读取信号值 ":{
+        "scope": "lua",
+        "prefix": "modbus_read_register",
+        "body": [
+            "modbus_read_register(${1:ctx},${2:reg})"
+        ],
+        "description": "modbus 从指定寄存器读取信号值 "
+    },
+    "modbus 从指定线圈读取信号值 ":{
+        "scope": "lua",
+        "prefix": "modbus_read_bits",
+        "body": [
+            "modbus_read_bits(${1:ctx},${2:reg},${3:len})"
+        ],
+        "description": "modbus 从指定线圈读取信号值 "
+    },
+    "modbus 往指定多个线圈写入值 ":{
+        "scope": "lua",
+        "prefix": "modbus_write_bits",
+        "body": [
+            "modbus_write_bits(${1:ctx},${2:reg},${3:size},${4:value})"
+        ],
+        "description": "modbus 往指定多个线圈写入值 "
+    },
+    "modbus 往指定线圈写入值 ":{
+        "scope": "lua",
+        "prefix": "modbus_write_bit",
+        "body": [
+            "modbus_write_bit(${1:ctx},${2:reg},${3:value})"
+        ],
+        "description": "modbus 往指定线圈写入值 "
+    },
+    "modbus 读 input 寄存器值 ":{
+        "scope": "lua",
+        "prefix": "modbus_read_input_register",
+        "body": [
+            "modbus_read_input_register(${1:ctx},${2:addr})"
+        ],
+        "description": "modbus 读 input 寄存器值 "
+    },
+    "modbus 往指定多个寄存器地址写入值 ":{
+        "scope": "lua",
+        "prefix": "modbus_write_registers",
+        "body": [
+            "modbus_write_registers(${1:ctx},${2:reg},${3:size},${4:value})"
+        ],
+        "description": "modbus 往指定多个寄存器地址写入值 "
+    },
+    "读取多个寄存器的值 ":{
+        "scope": "lua",
+        "prefix": "modbus_read_registers",
+        "body": [
+            "modbus_read_registers(${1:ctx},${2:addr},${3:len})"
+        ],
+        "description": "读取多个寄存器的值 "
+    },
+    "获取输入线圈状态 ":{
+        "scope": "lua",
+        "prefix": "modbus_read_input_bits",
+        "body": [
+            "modbus_read_input_bits(${1:ctx},${2:reg},${3:len})"
+        ],
+        "description": "获取输入线圈状态 "
+    },
+    "获取 int 型输入寄存器的值 ":{
+        "scope": "lua",
+        "prefix": "get_profinet_int_input_registers",
+        "body": [
+            "get_profinet_int_input_registers(${1:addr},${2:size})"
+        ],
+        "description": "获取 int 型输入寄存器的值 "
+    },
+    "获取 int 型输出寄存器的值 ":{
+        "scope": "lua",
+        "prefix": "get_profinet_int_output_registers",
+        "body": [
+            "get_profinet_int_output_registers(${1:addr},${2:size})"
+        ],
+        "description": "获取 int 型输出寄存器的值 "
+    },
+    "获取 float 型输入寄存器的值 ":{
+        "scope": "lua",
+        "prefix": "get_profinet_float_input_registers",
+        "body": [
+            "get_profinet_float_input_registers(${1:addr},${2:size})"
+        ],
+        "description": "获取 float 型输入寄存器的值 "
+    },
+    "获取 float 型输出寄存器的值 ":{
+        "scope": "lua",
+        "prefix": "get_profinet_float_output_registers",
+        "body": [
+            "get_profinet_float_output_registers(${1:addr},${2:size})"
+        ],
+        "description": "获取 float 型输出寄存器的值 "
+    },
+    "设置 int 型输出寄存器的值 ":{
+        "scope": "lua",
+        "prefix": "set_profinet_int_output_registers",
+        "body": [
+            "set_profinet_int_output_registers(${1:addr},${2:size},${3:value})"
+        ],
+        "description": "设置 int 型输出寄存器的值 "
+    },
+    "设置 float 型输出寄存器的值 ":{
+        "scope": "lua",
+        "prefix": "set_profinet_float_output_registers",
+        "body": [
+            "set_profinet_float_output_registers(${1:addr},${2:size},${3:value})"
+        ],
+        "description": "设置 float 型输出寄存器的值 "
+    },
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //自定义函数库
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
