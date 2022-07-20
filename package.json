@@ -5,7 +5,7 @@
 	"author": "Elite",
 	"publisher": "Elite",
 	"icon": "images/Elitelua.png",
-	"version": "0.1.7",
+	"version": "0.1.8",
 	"engines": {
 		"vscode": "^1.51.0"
 	},
