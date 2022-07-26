@@ -102,6 +102,36 @@
 --使用方法：
 	func_Counter
 ```
+### 0.1.8 2022.07.20
+
+- 接口添加
+
+    - modbus_read_bits
+
+    - modbus_write_bits
+
+    - modbus_write_bit
+
+    - modbus_read_input_register
+
+    - modbus_write_registers
+
+    - modbus_read_registers
+
+    - modbus_read_input_bits
+
+    - get_profinet_int_input_registers
+
+    - get_profinet_int_output_registers
+
+    - get_profinet_float_input_registers
+
+    - get_profinet_float_output_registers
+
+    - set_profinet_int_output_registers
+
+    - set_profinet_float_output_registers
+
 
 ### 0.1.7	2022.05.01
 
