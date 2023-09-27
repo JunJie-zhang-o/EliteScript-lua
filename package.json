@@ -1,21 +1,23 @@
 {
-	"name": "EliteLua",
+	"name": "elite-lua",
 	"displayName": "EliteScript_Lua",
 	"description": "Elite Robot Lua Script",
-	"author": "Elite",
-	"publisher": "Elite",
+	"author": "jay.zhangjunjie",
+	"publisher": "jay.zhangjunjie",
 	"icon": "images/Elitelua.png",
-	"version": "0.1.8",
+	"version": "1.0.0",
 	"engines": {
-		"vscode": "^1.51.0"
+		"vscode": "^1.74.0"
 	},
 	"categories": [
 		"Programming Languages",
 		"Extension Packs"
 	],
-	"main": "./out/main",
+	"main": "./out/main.js",
+	"l10n": "./l10n",
 	"activationEvents": [
-		"onStartupFinished"
+		"onLanguage:lua",
+		"*"
 	],
 	"contributes": {
 		"languages": [
@@ -46,7 +48,25 @@
 				"language": "lua",
 				"path": "./snippets/Elite.code-snippets"
 			}
-		]
+		],
+		"configuration": {
+			"title": "EliteScript_Lua",
+			"properties": {
+				"EliteScript_Lua.builtInLibraryLanguageMode": {
+					"type": "string",
+					"default": "auto",
+					"enum": [
+						"auto",
+						"zh-cn",
+						"en",
+						"ja",
+						"not use"
+					],
+					"markdownDescription": "%config.builtInLibraryLanguageMode%",
+					"scope": "resource"
+				}
+			}
+		}
 	},
 	"extensionDependencies": [
 		"sumneko.lua"
@@ -59,5 +79,26 @@
 		"id": "8503629a-6801-4769-a908-d8bf53b23ed2",
 		"publisherId": "0cf1cda8-e2d6-4330-b4cf-26c112ffb1c7",
 		"publisherDisplayName": "Elite"
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/node": "16.x",
+		"@types/vscode": "^1.74.0",
+		"@typescript-eslint/eslint-plugin": "^6.4.1",
+		"@typescript-eslint/parser": "^6.4.1",
+		"@vscode/test-electron": "^2.3.4",
+		"eslint": "^8.47.0",
+		"glob": "^10.3.3",
+		"typescript": "^5.1.6"
+	},
+	"dependencies": {
+		"vsce": "^2.15.0"
 	}
 }
