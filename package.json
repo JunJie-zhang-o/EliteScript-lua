@@ -1,10 +1,10 @@
 {
-	"name": "elite-lua",
+	"name": "EliteLua",
 	"displayName": "EliteScript_Lua",
 	"description": "Elite Robot Lua Script",
 	"author": "jay.zhangjunjie",
-	"publisher": "jay.zhangjunjie",
-	"icon": "images/Elitelua.png",
+	"publisher": "Elite",
+	"icon": "images/logo.png",
 	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.74.0"
@@ -17,7 +17,7 @@
 	"l10n": "./l10n",
 	"activationEvents": [
 		"onLanguage:lua",
-		"*"
+		"onStartupFinished"
 	],
 	"contributes": {
 		"languages": [
