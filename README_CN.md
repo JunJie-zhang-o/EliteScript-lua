@@ -1,5 +1,12 @@
 <div align=center> <img src="https://s3.ax1x.com/2021/01/03/sCYgBD.png" /> </div>
 
+
+<div align=center> 
+
+English / [简体中文](./README_CN.md) 
+
+</div>
+
 # **Elite for Lua**
 
 #### 				**明 天 比 今 天 更 简 单 一 点**																	
