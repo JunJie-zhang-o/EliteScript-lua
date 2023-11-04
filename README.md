@@ -1,6 +1,6 @@
 <div align=center> <img src="https://s3.ax1x.com/2021/01/03/sCYgBD.png" /> </div>
 
-# **Elite for Lua**
+# **Elite EC Series Robot Script For Lua**
 
 #### 				**明 天 比 今 天 更 简 单 一 点**																	
 
@@ -11,6 +11,8 @@
 > Elite Technology Forum：[Technology Forum](https://bbs.elibot.cn/forum/index/section/14.html)
 >
 > 艾利特学院（B站账号）：[艾利特学院](https://space.bilibili.com/548925152?spm_id_from=333.337.search-card.all.click)
+>
+> Elite College (Bilibili account)：[Elite College](https://space.bilibili.com/548925152?spm_id_from=333.337.search-card.all.click)
 
 
 
@@ -22,32 +24,39 @@ Elite robot using the Lua script that lightweight compact scripting language tha
 
 
 
-# 功能	Function
+# 功能	Feature
 
 本插件提供了艾利特协作机器人使用的函数代码块，同时附加上语法高亮，提高开发效率。
 
 This extension provides function code blocks used by the Elite collaborative robot, and adds syntax highlighting to improve development efficiency.
 
-##### 代码演示
+### 自动补全	AutoCompletion
 
-##### Code demo
+![autoCompletion](./assets/autoCompletion.gif)
 
-[![demo.gif](https://s3.ax1x.com/2021/01/19/sgY5Zj.gif)](https://imgchr.com/i/sgY5Zj)
+### 函数签名	SignatureHelp
 
-##### 语言模式切换：EliteScript_lua和lua
+![SignatureHelp](./assets/SignatureHelp.png)
 
-##### Switch the language mode：EliteScript_lua和lua
+### 悬停提示	Hover
 
-[![sgaFS0.gif](https://s3.ax1x.com/2021/01/19/sgaFS0.gif)](https://imgchr.com/i/sgaFS0)
+![Hover](./assets/Hover.png)
 
-> tips：从lua切换为EliteScript_lua，需要重启vscode
->
-> ​		  Switch from lua as EliteScript_lua, need to restart the vscode
+### 语法高亮	Highlight
 
-### Feature
+![Highlight](./assets/Highlight.png)
 
-- [x]  Highlight
-- [x]  Snippets
+### 错误诊断	Diagnostics
+
+![Diagnostics](./assets/Diagnostics.png)
+
+### 类型提示	Type
+
+![Type](./assets/Type.png)
+
+### 格式化	Formatting
+
+![Formatting](./assets/Formatting.png)
 
 
 
