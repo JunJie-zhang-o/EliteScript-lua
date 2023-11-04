@@ -20,33 +20,10 @@
 		"onStartupFinished"
 	],
 	"contributes": {
-		"languages": [
-			{
-				"id": "EliteScript_Lua",
-				"aliases": [
-					"EliteScript_Lua"
-				],
-				"extensions": [
-					".lua"
-				],
-				"configuration": "./language-configuration.json"
-			}
-		],
-		"grammars": [
-			{
-				"language": "EliteScript_Lua",
-				"path": "./syntaxes/lua.tmLanguage.json",
-				"scopeName": "source.lua"
-			}
-		],
 		"snippets": [
 			{
-				"language": "EliteScript_Lua",
-				"path": "./snippets/EliteLua.code-snippets"
-			},
-			{
 				"language": "lua",
-				"path": "./snippets/Elite.code-snippets"
+				"path": "./snippets/custom.code-snippets"
 			}
 		],
 		"configuration": {
