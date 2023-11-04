@@ -69,7 +69,8 @@
 		}
 	},
 	"extensionDependencies": [
-		"sumneko.lua"
+		"sumneko.lua",
+		"Natizyskunk.sftp"
 	],
 	"repository": {
 		"type": "git",
